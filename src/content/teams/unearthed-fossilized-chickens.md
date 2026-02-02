@@ -6,8 +6,11 @@ season: "unearthed"
 seasonYear: "2025-26"
 tagline: "Digging up solutions one brick at a time"
 color: "#8B6B4A"
-award: "Robot Design Award"
-awardEvent: "Qualifiers"
+awards:
+  - name: "Robot Design Award"
+    event: "Qualifiers"
+  - name: "Champion's Award Finalist"
+    event: "Sectionals"
 logo: "/images/teams/fossilized-chickens-logo.png"
 photo: "/images/teams/fossilized-chickens-team.png"
 coaches:

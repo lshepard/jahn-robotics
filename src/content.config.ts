@@ -11,8 +11,10 @@ const teams = defineCollection({
     seasonYear: z.string(),
     tagline: z.string().optional(),
     color: z.string(),
-    award: z.string().optional(),
-    awardEvent: z.string().optional(),
+    awards: z.array(z.object({
+      name: z.string(),
+      event: z.string(),
+    })).optional(),
     logo: z.string().optional(),
     photo: z.string().optional(),
     coaches: z.array(z.string()),

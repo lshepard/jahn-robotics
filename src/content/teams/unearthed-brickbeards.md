@@ -6,8 +6,9 @@ season: "unearthed"
 seasonYear: "2025-26"
 tagline: "Charting new territory"
 color: "#2D8C3C"
-award: "Motivate Award"
-awardEvent: "Qualifiers"
+awards:
+  - name: "Motivate Award"
+    event: "Qualifiers"
 logo: "/images/teams/brickbeards-logo.jpg"
 photo: "/images/teams/brickbeards-team.jpg"
 coaches:

@@ -10,6 +10,11 @@ coaches:
   - "Mollie Rapp"
   - "Colleen Lavin"
   - "Jeff Shepard"
+awards:
+  - name: "Motivate Award"
+    event: "Qualifiers"
+  - name: "Innovation Project Award"
+    event: "Sectionals"
 previousTeam: "masterpiece/jahn-rad-robots"
 nextTeam: "unearthed/fossilized-chickens"
 ---

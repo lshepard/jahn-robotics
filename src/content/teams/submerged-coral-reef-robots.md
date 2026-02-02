@@ -6,6 +6,9 @@ season: "submerged"
 seasonYear: "2024-25"
 color: "#0EA5E9"
 photo: "/images/teams/coral-reef-robots-team.png"
+awards:
+  - name: "Engineering Excellence Award"
+    event: "Qualifiers"
 coaches:
   - "Michael Kilkelly"
   - "Johnny Vivoda"

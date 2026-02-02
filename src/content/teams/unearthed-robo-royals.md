@@ -6,8 +6,9 @@ season: "unearthed"
 seasonYear: "2025-26"
 tagline: "Ruling the field with precision"
 color: "#E8A817"
-award: "Rising All-Star Award"
-awardEvent: "Qualifiers"
+awards:
+  - name: "Rising All-Star Award"
+    event: "Qualifiers"
 logo: "/images/teams/robo-royals-logo.png"
 photo: "/images/teams/robo-royals-team.png"
 coaches:

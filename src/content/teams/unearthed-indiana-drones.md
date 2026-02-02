@@ -6,8 +6,11 @@ season: "unearthed"
 seasonYear: "2025-26"
 tagline: "Adventure awaits on the mission mat"
 color: "#1A1A4E"
-award: "Champion's Award"
-awardEvent: "Qualifiers"
+awards:
+  - name: "Champion's Award"
+    event: "Qualifiers"
+  - name: "Robot Design Award"
+    event: "Sectionals"
 logo: "/images/teams/indiana-drones-logo.png"
 photo: "/images/teams/indiana-drones-team.png"
 coaches:

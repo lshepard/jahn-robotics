@@ -12,6 +12,11 @@ coaches:
   - "Jeff Shepard"
   - "Michael Kilkelly"
   - "Johnny Vivoda"
+awards:
+  - name: "Innovation Project Award"
+    event: "Qualifiers"
+  - name: "Core Values Award"
+    event: "Sectionals"
 nextTeam: "submerged/rad-robotic-chickens"
 photo: "/images/teams/jahn-rad-robots-team.png"
 ---

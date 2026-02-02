@@ -8,8 +8,7 @@ interface TeamData {
     season: string;
     seasonYear: string;
     color: string;
-    award?: string;
-    awardEvent?: string;
+    awards?: { name: string; event: string }[];
     logo?: string;
     tagline?: string;
     previousTeam?: string;
@@ -88,12 +87,17 @@ function darken(hex: string, amount: number): string {
       {teams.map((team, i) => (
         <div class={`relative pt-5 animate-on-scroll stagger-${i + 1}`}>
           {/* Dangling ribbon for award winners */}
-          {team.data.award && (
+          {team.data.awards && team.data.awards.length > 0 && (
             <div class="absolute -top-2 right-4 z-20 flex flex-col items-center">
               <img src="/images/fll/ribbon.png" alt="Award" class="w-12 h-auto drop-shadow-lg" />
               <span class="text-[10px] font-bold text-orange bg-white/90 backdrop-blur-sm rounded-full px-2 py-0.5 mt-1 shadow-sm whitespace-nowrap max-w-[120px] truncate text-center">
-                {team.data.award}
+                {team.data.awards[0].name}
               </span>
+              {team.data.awards.length > 1 && (
+                <span class="text-[9px] font-semibold text-orange/80 mt-0.5">
+                  +{team.data.awards.length - 1} more
+                </span>
+              )}
             </div>
           )}
           <a
