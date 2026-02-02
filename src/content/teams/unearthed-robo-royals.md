@@ -10,8 +10,9 @@ award: "Rising All-Star Award"
 awardEvent: "Qualifiers"
 logo: "/images/teams/robo-royals-logo.png"
 coaches:
-  - "Mollie Rapp"
-  - "Colleen Lavin"
+  - "Jake"
+  - "Johnny Vivoda"
+  - "Jeff Shepard"
 members:
   - name: "Team Member"
     reflection: ""

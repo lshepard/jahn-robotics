@@ -10,8 +10,9 @@ award: "Champion's Award"
 awardEvent: "Qualifiers"
 logo: "/images/teams/indiana-drones-logo.png"
 coaches:
-  - "Johnny Vivoda"
-  - "Michael Kilkelly"
+  - "Emily Brown"
+  - "Paul Baker"
+  - "Jeff Shepard"
 members:
   - name: "Team Member"
     reflection: ""

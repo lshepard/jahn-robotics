@@ -12,6 +12,8 @@ logo: "/images/teams/brickbeards-logo.jpg"
 coaches:
   - "Sandra Sugano"
   - "Tamer Haddadin"
+  - "Luke Shepard"
+  - "Jeff Shepard"
 members:
   - name: "Team Member"
     reflection: ""

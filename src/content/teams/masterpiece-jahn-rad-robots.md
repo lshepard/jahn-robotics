@@ -6,8 +6,12 @@ season: "masterpiece"
 seasonYear: "2023-24"
 color: "#F59E0B"
 coaches:
-  - "Luke Shepard"
   - "Mollie Rapp"
+  - "Luke Shepard"
+  - "Colleen Lavin"
+  - "Jeff Shepard"
+  - "Michael Kilkelly"
+  - "Johnny Vivoda"
 nextTeam: "submerged/rad-robotic-chickens"
 ---
 

@@ -10,7 +10,7 @@ interface Props {
   ogImage?: string;
 }
 
-const { title, description = 'Jahn Elementary School FIRST LEGO League Robotics Program in Lakeview, Chicago', ogImage = '/images/logo.jpg' } = Astro.props;
+const { title, description = 'Jahn Elementary School FIRST LEGO League Robotics Program in Lakeview, Chicago', ogImage = '/images/logo-128.png' } = Astro.props;
 const fullTitle = title === 'Home' ? 'Jahn Robotics' : `${title} | Jahn Robotics`;
 ---
 
@@ -18,7 +18,8 @@ const fullTitle = title === 'Home' ? 'Jahn Robotics' : `${title} | Jahn Robotics
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/logo-128.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta property="og:title" content={fullTitle} />

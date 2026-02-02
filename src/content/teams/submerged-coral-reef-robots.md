@@ -6,8 +6,8 @@ season: "submerged"
 seasonYear: "2024-25"
 color: "#0EA5E9"
 coaches:
-  - "Mollie Rapp"
-  - "Colleen Lavin"
+  - "Michael Kilkelly"
+  - "Johnny Vivoda"
 nextTeam: "unearthed/robo-royals"
 ---
 

@@ -10,6 +10,8 @@ award: "Robot Design Award"
 awardEvent: "Qualifiers"
 logo: "/images/teams/fossilized-chickens-logo.png"
 coaches:
+  - "Mollie Rapp"
+  - "Colleen Lavin"
   - "Luke Shepard"
   - "Jeff Shepard"
 members:
