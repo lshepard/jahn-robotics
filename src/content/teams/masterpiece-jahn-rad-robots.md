@@ -13,9 +13,8 @@ coaches:
   - "Michael Kilkelly"
   - "Johnny Vivoda"
 nextTeam: "submerged/rad-robotic-chickens"
+photo: "/images/teams/jahn-rad-robots-team.png"
 ---
-
-![The Jahn Rad Robots team photo](/images/teams/jahn-rad-robots-team.png)
 
 ## Our Season
 

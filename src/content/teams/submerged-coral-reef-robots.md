@@ -5,10 +5,10 @@ slug: "coral-reef-robots"
 season: "submerged"
 seasonYear: "2024-25"
 color: "#0EA5E9"
+photo: "/images/teams/coral-reef-robots-team.png"
 coaches:
   - "Michael Kilkelly"
   - "Johnny Vivoda"
-nextTeam: "unearthed/robo-royals"
 ---
 
 ## Our Season
