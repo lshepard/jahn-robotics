@@ -18,3 +18,11 @@ nextTeam: "submerged/rad-robotic-chickens"
 ## Our Season
 
 The Jahn Rad Robots were the very first FIRST LEGO League team at Jahn Elementary School. Founded by parent volunteers Luke Shepard and Mollie Rapp during the MASTERPIECE season, the team competed in qualifier and sectional tournaments and **advanced to the State competition** — one of only a few CPS schools to achieve this milestone. This team set the foundation for what would become a growing robotics program at Jahn.
+
+## Innovation Project
+
+The Jahn Rad Robots built a video game to teach people about how to fish. The game combined education and entertainment, aligning with the MASTERPIECE theme of using creativity to share something meaningful with the world.
+
+## Our Robot
+
+Details about our robot design and mission strategy coming soon.

@@ -14,3 +14,11 @@ nextTeam: "unearthed/robo-royals"
 ## Our Season
 
 The Jahn Coral Reef Robots joined as Jahn's second FLL team during the SUBMERGED season. As a brand-new team of 4th and 5th graders, they learned the fundamentals of robot building, programming, and teamwork while tackling the ocean exploration challenge.
+
+## Innovation Project
+
+The Coral Reef Robots built a "CTD" (Conductivity, Temperature, Depth) device to capture details about the deep ocean. The device measures key environmental data that helps researchers understand ocean conditions and monitor changes in underwater ecosystems.
+
+## Our Robot
+
+Details about our robot design and mission strategy coming soon.

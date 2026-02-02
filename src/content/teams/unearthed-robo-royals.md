@@ -23,6 +23,10 @@ previousTeam: "submerged/coral-reef-robots"
 
 The Robo Royals earned the **Rising All-Star Award**, recognizing the team's growth and potential in their second season. Building on their experience from the SUBMERGED challenge, they brought new skills and confidence to UNEARTHED.
 
+## Innovation Project
+
+The Robo Royals developed a 3D-printed camera system that can take 3D scans of artifacts. This allows archaeologists to create digital replicas they can study remotely, protecting the originals in case artifacts are damaged or broken during transit.
+
 ## Our Robot
 
 Details about our robot design and mission strategy coming soon.

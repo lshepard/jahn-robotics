@@ -22,9 +22,82 @@ const staff = [
   { name: 'Ms. D', role: 'Technology' },
   { name: 'Mrs. Walsh', role: 'Coding Instruction' },
 ];
+
+const values = [
+  {
+    title: 'Radical Inclusivity',
+    subtitle: 'No-Cut Policy',
+    description: 'Robotics is for everyone. We intentionally include students with IEPs, English Language Learners, and those with zero technical background. If you show up, you\'re on the team.',
+    icon: `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>`,
+    color: 'electric',
+  },
+  {
+    title: 'The Cooperative Model',
+    subtitle: 'Teacher-Parent Duo',
+    description: 'We reject the "lone teacher" bottleneck. Our teams thrive on synergy between CPS teachers and parent-volunteers, bridging classroom management and technical expertise. Every team has a lead coach and supporting coaches who bring different strengths to the table.',
+    icon: `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" /></svg>`,
+    color: 'green',
+  },
+  {
+    title: 'Growth Over Gold',
+    subtitle: 'Measuring What Matters',
+    description: 'While highly competitive, our primary metric is student growth — leadership, resilience after failure, and the ability to explain complex logic to a panel of judges. Trophies are a byproduct of genuine development.',
+    icon: `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>`,
+    color: 'orange',
+  },
+  {
+    title: 'Open-Source Spirit',
+    subtitle: 'Sharing the Playbook',
+    description: 'We don\'t gatekeep. We actively collaborate with the CPS CS Department to share our curriculum, videos, and logistics with other under-resourced schools. Our goal is to make it easier for every CPS school to start a robotics program.',
+    icon: `<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" /></svg>`,
+    color: 'electric',
+  },
+];
+
+const colorMap: Record<string, { bg: string; text: string; border: string }> = {
+  electric: { bg: 'bg-electric/10', text: 'text-electric', border: 'border-electric/20' },
+  green: { bg: 'bg-green/10', text: 'text-green', border: 'border-green/20' },
+  orange: { bg: 'bg-orange/10', text: 'text-orange', border: 'border-orange/20' },
+};
+
+const timeline = [
+  {
+    season: 'MASTERPIECE',
+    year: '2023-24',
+    label: 'Year 1 — Foundation',
+    description: 'One team, one kit. Parent volunteers Luke Shepard and Mollie Rapp founded Jahn Robotics with the Jahn Rad Robots. We introduced Python programming and mechanical design to students who had never touched a robot. The team advanced to the State competition — one of only a few CPS schools to reach that milestone in their debut year.',
+    teams: '1 team',
+    highlight: 'State Qualifier',
+    color: 'orange',
+  },
+  {
+    season: 'SUBMERGED',
+    year: '2024-25',
+    label: 'Year 2 — Proof of Concept',
+    description: 'Expanded to two teams and developed the teacher-parent duo coaching model. We proved that our inclusive approach could scale — more students, more coaches, and a deeper curriculum. Both teams competed strong and the program\'s identity began to crystallize.',
+    teams: '2 teams',
+    highlight: 'Coaching Model Established',
+    color: 'electric',
+  },
+  {
+    season: 'UNEARTHED',
+    year: '2025-26',
+    label: 'Year 3 — The Standard',
+    description: 'Four teams, 10+ volunteer coaches, and every single team brought home an award. 100% of our teams advanced to Sectionals, with multiple teams qualifying for State. The no-cut policy isn\'t a limitation — it\'s the engine behind our success.',
+    teams: '4 teams',
+    highlight: '100% Advanced to Sectionals',
+    color: 'green',
+  },
+];
+
+const timelineColorMap: Record<string, { bg: string; text: string; border: string; dot: string }> = {
+  orange: { bg: 'bg-orange/10', text: 'text-orange', border: 'border-orange/30', dot: 'bg-orange' },
+  electric: { bg: 'bg-electric/10', text: 'text-electric', border: 'border-electric/30', dot: 'bg-electric' },
+  green: { bg: 'bg-green/10', text: 'text-green', border: 'border-green/30', dot: 'bg-green' },
+};
 ---
 
-<BaseLayout title="About" description="Learn about the Jahn Robotics program, our coaches, and our mission.">
+<BaseLayout title="About" description="Learn about the Jahn Robotics program, our values, our growth story, and our coaches.">
   <!-- Header -->
   <section class="bg-navy pt-28 sm:pt-32 pb-16 sm:pb-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -32,26 +105,88 @@ const staff = [
         About Us
       </h1>
       <p class="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto animate-on-scroll">
-        A parent-led robotics program inspiring young engineers in Lakeview, Chicago.
+        A parent-led robotics program proving that inclusion is the winning strategy.
       </p>
     </div>
   </section>
 
-  <!-- Our Story -->
+  <!-- Vision Statement -->
   <section class="py-16 sm:py-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="animate-on-scroll">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
-        <div class="prose text-gray-600">
-          <p>
-            Jahn Robotics began in 2023 when parent volunteers Luke Shepard and Mollie Rapp founded the school's first FIRST LEGO League team at Jahn Elementary School in Lakeview, Chicago. That first team — the Jahn Rad Robots — competed in their debut season and advanced all the way to the State competition, one of only a few CPS schools to achieve this milestone.
-          </p>
-          <p>
-            Since then, the program has grown every year. In our second season (SUBMERGED, 2024-25), we expanded to two teams. Now in our third season (UNEARTHED, 2025-26), we field four teams with over 10 volunteer coaches. Every single team brought home an award this season.
-          </p>
-          <p>
-            Our mission is to give Jahn students hands-on experience with engineering, programming, and teamwork through competitive robotics. We believe that building robots teaches kids far more than technical skills — it builds confidence, creativity, and the ability to work through hard problems together.
-          </p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">The Jahn Way</h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-4">
+          At Jahn Robotics, we don't just build robots — we build teams. Based in Chicago Public Schools, we prove that a <strong class="text-gray-900">No-Cut policy</strong> isn't a barrier to excellence — it's the engine behind it.
+        </p>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          In three years, we've grown from a single kit to a state-qualifying program where every student, regardless of background or ability, has a seat at the table. These are the values that guide everything we do.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="py-16 sm:py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {values.map((value, i) => {
+          const colors = colorMap[value.color];
+          return (
+            <div class={`bg-white rounded-2xl p-6 sm:p-8 border ${colors.border} animate-on-scroll stagger-${i + 1}`}>
+              <div class={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${colors.bg} ${colors.text} mb-4`}>
+                <Fragment set:html={value.icon} />
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-1">{value.title}</h3>
+              <p class={`text-sm font-semibold ${colors.text} mb-3`}>{value.subtitle}</p>
+              <p class="text-gray-600 leading-relaxed">{value.description}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Three-Year Surge -->
+  <section class="py-16 sm:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 animate-on-scroll">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Three-Year Surge</h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          From one team and one kit to a four-team, state-qualifying program.
+        </p>
+      </div>
+
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200 hidden sm:block"></div>
+
+        <div class="space-y-8">
+          {timeline.map((item, i) => {
+            const colors = timelineColorMap[item.color];
+            return (
+              <div class={`relative sm:pl-16 animate-on-scroll stagger-${i + 1}`}>
+                <!-- Timeline dot -->
+                <div class={`absolute left-4 top-6 w-5 h-5 rounded-full ${colors.dot} border-4 border-white shadow-md hidden sm:block`}></div>
+
+                <div class={`bg-white rounded-2xl p-6 sm:p-8 border ${colors.border} shadow-sm`}>
+                  <div class="flex flex-wrap items-center gap-3 mb-3">
+                    <span class={`text-xs font-bold ${colors.text} ${colors.bg} px-3 py-1 rounded-full uppercase tracking-wider`}>
+                      {item.season} ({item.year})
+                    </span>
+                    <span class={`text-xs font-medium ${colors.text}`}>{item.teams}</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">{item.label}</h3>
+                  <p class="text-gray-600 leading-relaxed mb-3">{item.description}</p>
+                  <div class={`inline-flex items-center gap-2 text-sm font-semibold ${colors.text}`}>
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {item.highlight}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
