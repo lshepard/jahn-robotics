@@ -6,6 +6,11 @@ const currentTeams = allTeams
   .filter(t => t.data.season === 'unearthed')
   .sort((a, b) => a.data.number - b.data.number);
 
+const allSeasons = await getCollection('seasons');
+const unearthedSeason = allSeasons.find(s => s.data.slug === 'unearthed');
+const seasonBackground = unearthedSeason?.data.background;
+const seasonLogo = unearthedSeason?.data.logo;
+
 function darken(hex: string, amount: number): string {
   const num = parseInt(hex.replace('#', ''), 16);
   const r = Math.max(0, (num >> 16) - amount);
@@ -15,18 +20,35 @@ function darken(hex: string, amount: number): string {
 }
 ---
 
-<section class="py-16 sm:py-24 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12 animate-on-scroll">
-      <span class="inline-block bg-electric/10 text-electric text-sm font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider">
-        2025-26 Season
-      </span>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        UNEARTHED
-      </h2>
-      <p class="text-lg text-gray-500 max-w-2xl mx-auto">
-        Four teams tackling the archaeology challenge, uncovering the past to discover the future.
-      </p>
+<section class="relative overflow-hidden">
+  {seasonBackground && (
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style={`background-image: url('${seasonBackground}');`}
+    ></div>
+  )}
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-10 animate-on-scroll">
+      {seasonLogo && (
+        <img
+          src={seasonLogo}
+          alt="Unearthed season logo"
+          class="h-16 sm:h-20 w-auto object-contain rounded-lg"
+        />
+      )}
+      <div>
+        <div class="flex items-center gap-3 mb-1">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white drop-shadow-md">Unearthed</h2>
+          <span class="bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm">
+            Current
+          </span>
+        </div>
+        <p class="text-white/80 drop-shadow-sm">
+          2025-26 &middot; Four teams tackling the archaeology challenge
+        </p>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -81,7 +103,7 @@ function darken(hex: string, amount: number): string {
     </div>
 
     <div class="text-center mt-10 animate-on-scroll">
-      <a href="/teams/" class="inline-flex items-center gap-2 text-electric hover:text-electric-dark font-semibold transition-colors">
+      <a href="/teams/" class="inline-flex items-center gap-2 text-white/80 hover:text-white font-semibold transition-colors">
         View all seasons & teams
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
