@@ -33,6 +33,8 @@ const seasons = defineCollection({
     year: z.string(),
     fllTheme: z.string(),
     order: z.number(),
+    logo: z.string().optional(),
+    background: z.string().optional(),
   }),
 });
 

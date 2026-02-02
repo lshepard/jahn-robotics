@@ -31,18 +31,17 @@ const teamsBySeason = sortedSeasons.map(season => ({
     </div>
   </section>
 
-  <!-- Teams by season -->
-  <section class="py-12 sm:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {teamsBySeason.map((season, i) => (
-        <SeasonSection
-          seasonName={season.name}
-          seasonYear={season.year}
-          fllTheme={season.fllTheme}
-          teams={season.teams}
-          isCurrent={i === 0}
-        />
-      ))}
-    </div>
-  </section>
+  <!-- Teams by season — full-width banners -->
+  {teamsBySeason.map((season, i) => (
+    <SeasonSection
+      seasonName={season.name}
+      seasonSlug={season.slug}
+      seasonYear={season.year}
+      fllTheme={season.fllTheme}
+      seasonLogo={season.logo}
+      seasonBackground={season.background}
+      teams={season.teams}
+      isCurrent={i === 0}
+    />
+  ))}
 </BaseLayout>

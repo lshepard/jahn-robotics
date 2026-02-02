@@ -23,9 +23,12 @@ const {
 
 const seasonDisplay = season.charAt(0).toUpperCase() + season.slice(1);
 
-// Build lineage links
+// Build lineage links + season data
 import { getCollection } from 'astro:content';
 const allTeams = await getCollection('teams');
+const allSeasons = await getCollection('seasons');
+const seasonData = allSeasons.find(s => s.data.slug === season);
+const seasonLogo = seasonData?.data.logo;
 
 let prevTeamData = null;
 let nextTeamData = null;
@@ -84,6 +87,16 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
             </div>
           )}
         </div>
+        {seasonLogo && (
+          <img
+            src={seasonLogo}
+            alt={`${seasonDisplay} season`}
+            class:list={[
+              'hidden sm:block h-20 lg:h-24 w-auto object-contain opacity-80',
+              season === 'submerged' ? 'rounded-full' : 'rounded-lg'
+            ]}
+          />
+        )}
       </div>
     </div>
   </section>
