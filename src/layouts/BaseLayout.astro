@@ -8,9 +8,10 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  isHome?: boolean;
 }
 
-const { title, description = 'A growing FIRST LEGO League robotics program at Jahn Elementary in Chicago Public Schools', ogImage = '/images/logo-128.png' } = Astro.props;
+const { title, description = 'An award-winning robotics program at Jahn Elementary in Chicago Public Schools', ogImage = '/images/logo-128.png', isHome = false } = Astro.props;
 const fullTitle = title === 'Home' ? 'Jahn Robotics' : `${title} | Jahn Robotics`;
 ---
 
@@ -37,7 +38,7 @@ const fullTitle = title === 'Home' ? 'Jahn Robotics' : `${title} | Jahn Robotics
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-electric text-white px-4 py-2 rounded z-50">
       Skip to content
     </a>
-    <Header />
+    <Header isHome={isHome} />
     <main id="main-content" class="flex-1">
       <slot />
     </main>

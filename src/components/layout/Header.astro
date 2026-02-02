@@ -1,4 +1,9 @@
 ---
+interface Props {
+  isHome?: boolean;
+}
+
+const { isHome = false } = Astro.props;
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
@@ -13,7 +18,7 @@ function isActive(href: string) {
 }
 ---
 
-<header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300" id="site-header">
+<header class:list={["fixed top-0 left-0 right-0 z-40 transition-all duration-300", !isHome && "bg-navy/95 backdrop-blur-md shadow-lg"]} id="site-header" data-is-home={isHome ? "true" : "false"}>
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 sm:h-20">
       <!-- Logo -->
@@ -86,11 +91,12 @@ function isActive(href: string) {
     const iconOpen = document.getElementById('menu-icon-open');
     const iconClose = document.getElementById('menu-icon-close');
 
-    // Scroll effect - solid bg after scrolling
+    // Scroll effect - only fade on home page
+    const isHome = header?.dataset.isHome === 'true';
     let lastScroll = 0;
     function onScroll() {
       const scrollY = window.scrollY;
-      if (header) {
+      if (header && isHome) {
         if (scrollY > 50) {
           header.classList.add('bg-navy/95', 'backdrop-blur-md', 'shadow-lg');
         } else {
