@@ -6,10 +6,12 @@
   <!-- Video background -->
   <div class="absolute inset-0">
     <video
+      id="hero-video"
       autoplay
       muted
       loop
       playsinline
+      webkit-playsinline
       poster="/images/hero-poster.jpg"
       class="w-full h-full object-cover"
     >
@@ -49,6 +51,15 @@
       </div>
     </div>
   </div>
+
+  <script>
+    // iOS Safari autoplay fallback
+    const video = document.getElementById('hero-video') as HTMLVideoElement;
+    if (video) {
+      video.muted = true;
+      video.play().catch(() => {});
+    }
+  </script>
 
   <!-- Scroll indicator -->
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
