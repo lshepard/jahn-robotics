@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import TeamCards from '../components/home/TeamCards.astro';
+import StatsCounter from '../components/home/StatsCounter.astro';
+import SeasonHighlights from '../components/home/SeasonHighlights.astro';
+---
+
+<BaseLayout title="Home">
+  <Hero />
+  <TeamCards />
+  <SeasonHighlights />
+  <StatsCounter />
+
+  <!-- CTA Section -->
+  <section class="py-16 sm:py-24 bg-gradient-to-br from-electric to-electric-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+        Three Seasons and Growing
+      </h2>
+      <p class="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+        From one team in 2023 to four teams competing across Chicago. Explore our journey and see how Jahn Robotics has grown.
+      </p>
+      <a
+        href="/teams/"
+        class="inline-flex items-center gap-2 bg-white text-electric font-semibold px-8 py-4 rounded-xl text-lg transition-all hover:scale-105 shadow-lg"
+      >
+        Explore All Teams
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

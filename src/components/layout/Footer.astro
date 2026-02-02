@@ -1,0 +1,46 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-navy text-white/70">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <img src="/images/logo.jpg" alt="Jahn Robotics" class="h-10 rounded-lg" />
+          <span class="font-heading text-lg font-bold text-white">Jahn Robotics</span>
+        </div>
+        <p class="text-sm leading-relaxed">
+          FIRST LEGO League teams at Jahn Elementary School in Lakeview, Chicago. Building robots, building futures.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-heading text-sm font-semibold text-white uppercase tracking-wider mb-4">Explore</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/teams/" class="hover:text-electric transition-colors">Teams</a></li>
+          <li><a href="/gallery/" class="hover:text-electric transition-colors">Gallery</a></li>
+          <li><a href="/about/" class="hover:text-electric transition-colors">About</a></li>
+        </ul>
+      </div>
+
+      <!-- FLL -->
+      <div>
+        <h3 class="font-heading text-sm font-semibold text-white uppercase tracking-wider mb-4">FIRST LEGO League</h3>
+        <p class="text-sm leading-relaxed mb-3">
+          We are proud participants in the FIRST LEGO League program, inspiring young people to be science and technology leaders.
+        </p>
+        <a href="https://www.firstlegoleague.org/" target="_blank" rel="noopener noreferrer" class="text-sm text-electric hover:text-electric-dark transition-colors">
+          Learn more about FLL &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
+      <p>&copy; {year} Jahn Robotics. All rights reserved.</p>
+      <p>Built with passion by the Jahn Robotics community.</p>
+    </div>
+  </div>
+</footer>

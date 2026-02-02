@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SeasonSection from '../../components/teams/SeasonSection.astro';
+import { getCollection } from 'astro:content';
+
+const allTeams = await getCollection('teams');
+const allSeasons = await getCollection('seasons');
+
+// Sort seasons newest first
+const sortedSeasons = allSeasons.sort((a, b) => b.data.order - a.data.order);
+
+// Group teams by season
+const teamsBySeason = sortedSeasons.map(season => ({
+  ...season.data,
+  teams: allTeams
+    .filter(t => t.data.season === season.data.slug)
+    .sort((a, b) => a.data.number - b.data.number),
+}));
+---
+
+<BaseLayout title="Teams" description="Meet all the Jahn Robotics FIRST LEGO League teams across every season.">
+  <!-- Page header -->
+  <section class="bg-navy pt-28 sm:pt-32 pb-16 sm:pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 animate-on-scroll">
+        Our Teams
+      </h1>
+      <p class="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto animate-on-scroll">
+        From one team to four, growing every season. Click on any team to explore their story.
+      </p>
+    </div>
+  </section>
+
+  <!-- Teams by season -->
+  <section class="py-12 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {teamsBySeason.map((season, i) => (
+        <SeasonSection
+          seasonName={season.name}
+          seasonYear={season.year}
+          fllTheme={season.fllTheme}
+          teams={season.teams}
+          isCurrent={i === 0}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

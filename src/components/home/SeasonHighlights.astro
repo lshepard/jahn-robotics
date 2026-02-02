@@ -1,0 +1,47 @@
+---
+const highlights = [
+  {
+    icon: '🏆',
+    title: 'Champion\'s Award',
+    description: 'Indiana Drones won the highest team honor at qualifiers in their rookie season.',
+  },
+  {
+    icon: '🤖',
+    title: 'Robot Design Award',
+    description: 'Fossilized Chickens recognized for outstanding robot construction and programming.',
+  },
+  {
+    icon: '⭐',
+    title: 'Rising All-Star',
+    description: 'Robo Royals honored for exceptional growth and potential.',
+  },
+  {
+    icon: '🔥',
+    title: 'Motivate Award',
+    description: 'Brickbeards celebrated for their team spirit and enthusiasm.',
+  },
+];
+---
+
+<section class="py-16 sm:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 animate-on-scroll">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        Season Highlights
+      </h2>
+      <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+        Every Jahn team brought home an award this season. Here's what our teams accomplished.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {highlights.map((item, i) => (
+        <div class={`bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover animate-on-scroll stagger-${i + 1}`}>
+          <div class="text-3xl mb-4">{item.icon}</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

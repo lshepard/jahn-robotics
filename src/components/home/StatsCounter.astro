@@ -1,0 +1,25 @@
+---
+const stats = [
+  { value: '4', label: 'Teams This Season' },
+  { value: '7', label: 'Teams All-Time' },
+  { value: '10+', label: 'Volunteer Coaches' },
+  { value: '3', label: 'Seasons Strong' },
+];
+---
+
+<section class="bg-navy py-16 sm:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+      {stats.map((stat, i) => (
+        <div class={`text-center animate-on-scroll stagger-${i + 1}`}>
+          <div class="text-4xl sm:text-5xl md:text-6xl font-bold text-electric mb-2 font-heading">
+            {stat.value}
+          </div>
+          <div class="text-sm sm:text-base text-white/60 font-medium">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

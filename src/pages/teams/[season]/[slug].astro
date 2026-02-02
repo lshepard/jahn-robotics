@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from 'astro:content';
+import TeamLayout from '../../../layouts/TeamLayout.astro';
+
+export async function getStaticPaths() {
+  const teams = await getCollection('teams');
+  return teams.map(team => ({
+    params: { season: team.data.season, slug: team.data.slug },
+    props: { team },
+  }));
+}
+
+const { team } = Astro.props;
+const { Content } = await render(team);
+---
+
+<TeamLayout
+  name={team.data.name}
+  number={team.data.number}
+  season={team.data.season}
+  seasonYear={team.data.seasonYear}
+  color={team.data.color}
+  award={team.data.award}
+  awardEvent={team.data.awardEvent}
+  logo={team.data.logo}
+  coaches={team.data.coaches}
+  members={team.data.members}
+  previousTeam={team.data.previousTeam}
+  nextTeam={team.data.nextTeam}
+>
+  <Content />
+</TeamLayout>
