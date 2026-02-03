@@ -9,8 +9,13 @@ const photos = media.filter(m => m.type === 'photo').slice(0, 6);
 
 <BaseLayout title="About" description="Learn about the Jahn Robotics program — how we started, how we've grown, and what we believe in.">
   <!-- Header with photo -->
-  <section class="bg-navy pt-28 sm:pt-32 pb-16 sm:pb-20">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="relative pt-28 sm:pt-32 pb-16 sm:pb-20">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/images/teams/full-team.jpeg');"
+    ></div>
+    <div class="absolute inset-0 bg-navy/80"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6 animate-on-scroll">
         About Jahn Robotics
       </h1>
@@ -35,7 +40,7 @@ const photos = media.filter(m => m.type === 'photo').slice(0, 6);
           grew quickly, and surprised us all by competing in the Illinois State Competition. Since then, the program has grown and added students every year. This year we have four teams and 
           ten volunteer coaches. Every single team brought home an award from their tournaments, and 
           multiple teams have qualified for State. More importantly, the kids have learned so much about engineering,
-          programming, 
+          programming, speaking, and how to build a team.
         </p>
 
       </div>
@@ -83,15 +88,16 @@ const photos = media.filter(m => m.type === 'photo').slice(0, 6);
           <h3 class="font-bold text-gray-900 mb-2">Innovation</h3>
           <p class="text-gray-600">
             We use creativity and persistence to solve problems. Each team tackles a real-world challenge
-            for their Innovation Project — this year's teams are working on solutions related to
-            underground farming, cave exploration, and mining safety.
+            for their Innovation Project — this year's teams are working on solutions related to site safety,
+            3d scanning, cave exploration, and video games that help kids learn about archeology.
           </p>
         </div>
 
         <div class="bg-white rounded-xl p-6 border border-gray-200">
           <h3 class="font-bold text-gray-900 mb-2">Teamwork</h3>
           <p class="text-gray-600">
-            We are stronger when we work together. Our teams are coached by parent-teacher duos
+            We are stronger when we work together. Our teams are coached by a combination of parents,
+            teachers, and dedicated community volunteers 
             who bring different skills to the table. Students learn that building a robot is a team effort —
             coders need builders, presenters need researchers, and everyone needs encouragement.
           </p>
@@ -100,9 +106,7 @@ const photos = media.filter(m => m.type === 'photo').slice(0, 6);
         <div class="bg-white rounded-xl p-6 border border-gray-200">
           <h3 class="font-bold text-gray-900 mb-2">Fun</h3>
           <p class="text-gray-600">
-            We enjoy and celebrate what we do. Yes, competitions are intense. But if kids aren't
-            having fun, we're doing it wrong. The best moments are often the small ones — a robot
-            finally working, a team joke that sticks, the bus ride home after a tournament.
+            We enjoy and celebrate what we do.
           </p>
         </div>
       </div>
