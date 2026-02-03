@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "convert-media": "bash scripts/convert-media.sh"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",

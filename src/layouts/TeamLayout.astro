@@ -1,9 +1,13 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import MediaHero from '../components/shared/MediaHero.astro';
+import MediaGallery from '../components/shared/MediaGallery.astro';
+import { getTeamMedia } from '../lib/media';
 
 interface Props {
   name: string;
   number: number;
+  slug: string;
   season: string;
   seasonYear: string;
   color: string;
@@ -17,9 +21,11 @@ interface Props {
 }
 
 const {
-  name, number, season, seasonYear, color, awards,
+  name, number, slug, season, seasonYear, color, awards,
   logo, photo, coaches, members, previousTeam, nextTeam
 } = Astro.props;
+
+const teamMedia = getTeamMedia(slug);
 
 const seasonDisplay = season.charAt(0).toUpperCase() + season.slice(1);
 
@@ -59,14 +65,24 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
     </div>
   </section>
 
-  <!-- Team hero with photo background -->
-  {photo ? (
+  <!-- Team hero with media montage or photo background -->
+  {(teamMedia.length > 0 || photo) ? (
     <section class="relative overflow-hidden">
-      <div
-        class="absolute inset-0 bg-cover bg-top"
-        style={`background-image: url('${photo}');`}
-      ></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-black/10"></div>
+      {teamMedia.length > 0 ? (
+        <MediaHero
+          media={teamMedia}
+          fallbackImage={photo}
+          overlayClass="bg-gradient-to-t from-black/60 via-black/25 to-black/10"
+        />
+      ) : (
+        <Fragment>
+          <div
+            class="absolute inset-0 bg-cover bg-top"
+            style={`background-image: url('${photo}');`}
+          ></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-black/10"></div>
+        </Fragment>
+      )}
       <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
         <div class="flex flex-col sm:flex-row items-start sm:items-end gap-6">
           {logo && (
@@ -163,6 +179,11 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
         </div>
       </div>
     </section>
+  )}
+
+  <!-- Media gallery -->
+  {teamMedia.length > 0 && (
+    <MediaGallery media={teamMedia} color={color} />
   )}
 
   <!-- Main content -->

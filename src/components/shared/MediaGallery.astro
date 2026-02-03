@@ -1,0 +1,129 @@
+---
+import type { MediaItem } from '../../lib/media';
+
+interface Props {
+  media: MediaItem[];
+  color: string;
+}
+
+const { media, color } = Astro.props;
+
+// Separate photos and videos for display
+const photos = media.filter(m => m.type === 'photo');
+const videos = media.filter(m => m.type === 'video');
+---
+
+{media.length > 0 && (
+  <section class="py-8 sm:py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Photos & Videos</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        {videos.map((item) => (
+          <div class="media-gallery-item relative group cursor-pointer rounded-xl overflow-hidden aspect-video bg-gray-100">
+            <video
+              muted
+              playsinline
+              webkit-playsinline
+              preload="metadata"
+              class="w-full h-full object-cover"
+              src={`${item.src}#t=0.5`}
+            />
+            {/* Play icon overlay */}
+            <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+              <div
+                class="w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-sm shadow-lg group-hover:scale-110 transition-transform"
+                style={`background: ${color}cc;`}
+              >
+                <svg class="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        ))}
+        {photos.map((item) => (
+          <div class="media-gallery-item relative group cursor-pointer rounded-xl overflow-hidden aspect-video bg-gray-100">
+            <img
+              src={item.src}
+              alt=""
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Lightbox overlay */}
+    <div class="media-lightbox fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4" id="media-lightbox">
+      <button class="absolute top-4 right-4 text-white/70 hover:text-white z-10" id="lightbox-close">
+        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="max-w-5xl max-h-[90vh] w-full flex items-center justify-center" id="lightbox-content">
+      </div>
+    </div>
+  </section>
+)}
+
+<script>
+  function initGallery() {
+    const lightbox = document.getElementById('media-lightbox');
+    const content = document.getElementById('lightbox-content');
+    const closeBtn = document.getElementById('lightbox-close');
+    if (!lightbox || !content || !closeBtn) return;
+
+    function openLightbox(el: HTMLElement) {
+      const video = el.querySelector('video');
+      const img = el.querySelector('img');
+      content.innerHTML = '';
+
+      if (video) {
+        const expanded = document.createElement('video');
+        expanded.src = video.src.replace('#t=0.5', '');
+        expanded.controls = true;
+        expanded.autoplay = true;
+        expanded.muted = false;
+        expanded.playsInline = true;
+        expanded.className = 'max-w-full max-h-[85vh] rounded-lg';
+        content.appendChild(expanded);
+        expanded.play().catch(() => {});
+      } else if (img) {
+        const expanded = document.createElement('img');
+        expanded.src = img.src;
+        expanded.alt = '';
+        expanded.className = 'max-w-full max-h-[85vh] rounded-lg object-contain';
+        content.appendChild(expanded);
+      }
+
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      // Stop any playing video
+      const video = content.querySelector('video');
+      if (video) video.pause();
+      content.innerHTML = '';
+    }
+
+    // Click on gallery items
+    document.querySelectorAll<HTMLElement>('.media-gallery-item').forEach(item => {
+      item.addEventListener('click', () => openLightbox(item));
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  }
+
+  initGallery();
+  document.addEventListener('astro:after-swap', initGallery);
+</script>

@@ -1,26 +1,17 @@
 ---
+import MediaHero from '../shared/MediaHero.astro';
+import { getAllMedia } from '../../lib/media';
 
+const allMedia = getAllMedia();
 ---
 
 <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-  <!-- Video background -->
-  <div class="absolute inset-0">
-    <video
-      id="hero-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      webkit-playsinline
-      poster="/images/hero-poster.jpg"
-      class="w-full h-full object-cover"
-    >
-      <source src="/images/hero-background.mp4" type="video/mp4" />
-      <source src="/images/hero-background.webm" type="video/webm" />
-    </video>
-    <!-- Gradient overlay -->
-    <div class="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/50 to-navy/90"></div>
-  </div>
+  <!-- Video/photo background montage -->
+  <MediaHero
+    media={allMedia}
+    fallbackImage="/images/hero-poster.jpg"
+    overlayClass="bg-gradient-to-b from-navy/70 via-navy/50 to-navy/90"
+  />
 
   <!-- Content -->
   <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -52,15 +43,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-    // iOS Safari autoplay fallback
-    const video = document.getElementById('hero-video') as HTMLVideoElement;
-    if (video) {
-      video.muted = true;
-      video.play().catch(() => {});
-    }
-  </script>
 
   <!-- Scroll indicator -->
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">

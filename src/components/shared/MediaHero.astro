@@ -1,0 +1,172 @@
+---
+import type { MediaItem } from '../../lib/media';
+
+interface Props {
+  media: MediaItem[];
+  fallbackImage?: string;
+  overlayClass?: string;
+}
+
+const { media, fallbackImage, overlayClass = 'bg-gradient-to-b from-black/60 via-black/30 to-black/70' } = Astro.props;
+
+// Build a JSON-safe list for client-side JS
+const mediaJson = JSON.stringify(media);
+
+// Pick first item for SSR fallback (no-JS)
+const firstItem = media[0] || null;
+---
+
+<div class="media-hero absolute inset-0" data-media={mediaJson}>
+  {/* Layer A — active layer */}
+  <div class="media-layer media-layer-a absolute inset-0 transition-opacity duration-700" style="opacity: 1;">
+    {firstItem?.type === 'video' ? (
+      <video
+        autoplay
+        muted
+        playsinline
+        webkit-playsinline
+        class="w-full h-full object-cover"
+        src={firstItem.src}
+      />
+    ) : firstItem?.type === 'photo' ? (
+      <img src={firstItem.src} alt="" class="w-full h-full object-cover" />
+    ) : fallbackImage ? (
+      <img src={fallbackImage} alt="" class="w-full h-full object-cover" />
+    ) : null}
+  </div>
+
+  {/* Layer B — incoming layer (starts hidden) */}
+  <div class="media-layer media-layer-b absolute inset-0 transition-opacity duration-700" style="opacity: 0;">
+  </div>
+
+  {/* Gradient overlay */}
+  <div class={`absolute inset-0 ${overlayClass}`}></div>
+</div>
+
+<script>
+  function initMediaHero(container: HTMLElement) {
+    const mediaData = JSON.parse(container.dataset.media || '[]');
+    if (mediaData.length <= 1) {
+      // Single item or empty — just ensure video plays (iOS fallback)
+      const video = container.querySelector('video');
+      if (video) {
+        video.muted = true;
+        video.play().catch(() => {});
+      }
+      return;
+    }
+
+    // Fisher-Yates shuffle
+    const items = [...mediaData];
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [items[i], items[j]] = [items[j], items[i]];
+    }
+
+    const layerA = container.querySelector('.media-layer-a') as HTMLElement;
+    const layerB = container.querySelector('.media-layer-b') as HTMLElement;
+    let currentIndex = 0;
+    let activeLayer = layerA;
+    let inactiveLayer = layerB;
+
+    const PHOTO_DURATION = 5000;
+
+    function createMediaElement(item: { src: string; type: string }): HTMLElement {
+      if (item.type === 'video') {
+        const video = document.createElement('video');
+        video.autoplay = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.setAttribute('webkit-playsinline', '');
+        video.className = 'w-full h-full object-cover';
+        video.src = item.src;
+        return video;
+      } else {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = '';
+        img.className = 'w-full h-full object-cover';
+        return img;
+      }
+    }
+
+    function advanceToNext() {
+      currentIndex = (currentIndex + 1) % items.length;
+      const nextItem = items[currentIndex];
+
+      // Prepare the inactive layer with next content
+      inactiveLayer.innerHTML = '';
+      const el = createMediaElement(nextItem);
+      inactiveLayer.appendChild(el);
+
+      // If video, wait for it to be ready before crossfading
+      if (nextItem.type === 'video') {
+        const video = el as HTMLVideoElement;
+        video.muted = true;
+
+        const doTransition = () => {
+          // Crossfade
+          inactiveLayer.style.opacity = '1';
+          activeLayer.style.opacity = '0';
+
+          // Swap references
+          const temp = activeLayer;
+          activeLayer = inactiveLayer;
+          inactiveLayer = temp;
+
+          // When this video ends, advance again
+          video.addEventListener('ended', advanceToNext, { once: true });
+        };
+
+        // Try to play, transition once playing
+        video.addEventListener('canplay', () => {
+          video.play().then(doTransition).catch(() => {
+            doTransition();
+          });
+        }, { once: true });
+
+        // Fallback if canplay never fires
+        setTimeout(() => {
+          if (inactiveLayer.style.opacity === '0') {
+            video.play().catch(() => {});
+            doTransition();
+          }
+        }, 2000);
+
+      } else {
+        // Photo — crossfade immediately, advance after duration
+        inactiveLayer.style.opacity = '1';
+        activeLayer.style.opacity = '0';
+
+        const temp = activeLayer;
+        activeLayer = inactiveLayer;
+        inactiveLayer = temp;
+
+        setTimeout(advanceToNext, PHOTO_DURATION);
+      }
+    }
+
+    // Set up the first item
+    const firstItem = items[0];
+    layerA.innerHTML = '';
+    const firstEl = createMediaElement(firstItem);
+    layerA.appendChild(firstEl);
+
+    if (firstItem.type === 'video') {
+      const video = firstEl as HTMLVideoElement;
+      video.muted = true;
+      video.play().catch(() => {});
+      video.addEventListener('ended', advanceToNext, { once: true });
+    } else {
+      setTimeout(advanceToNext, PHOTO_DURATION);
+    }
+  }
+
+  // Init all media heroes on the page
+  function initAll() {
+    document.querySelectorAll<HTMLElement>('.media-hero').forEach(initMediaHero);
+  }
+
+  initAll();
+  document.addEventListener('astro:after-swap', initAll);
+</script>

@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# raw media files (too large for git — run npm run convert-media to process)
+public/images/teams/*/raw/
