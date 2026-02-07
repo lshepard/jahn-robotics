@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Fall 2026 Season" description="Sign up for Jahn Robotics Fall 2026 season">
+  <section class="relative pt-28 sm:pt-32 pb-16 sm:pb-24">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/images/fll-2026-27-teaser-22s.jpg');"
+    ></div>
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6 animate-on-scroll">
+        Fall 2026 Season
+      </h1>
+
+      <!-- Video -->
+      <div class="mb-10 animate-on-scroll">
+        <video
+          class="w-full max-w-3xl mx-auto rounded-2xl shadow-xl"
+          controls
+          loop
+          playsinline
+          poster="/images/fll-2026-27-teaser-30s.jpg"
+        >
+          <source src="/videos/FLL-2026-27-Season-Teaser.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="bg-gray-50 rounded-2xl p-8 sm:p-10 animate-on-scroll">
+        <p class="text-xl sm:text-2xl text-gray-700 leading-relaxed mb-4">
+          What will be the FLL theme next year? Check out the video above and <a href="https://forms.gle/upRuaE15JMmBPXdQ7" target="_blank" rel="noopener noreferrer" class="text-electric hover:underline font-semibold">leave your best guess here</a>.
+        </p>
+        <p class="text-lg text-gray-600">
+          More info about Fall signups for Jahn Robotics coming in May 2026
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
