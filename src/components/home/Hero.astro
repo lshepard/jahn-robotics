@@ -1,8 +1,8 @@
 ---
 import MediaHero from '../shared/MediaHero.astro';
-import { getAllMedia } from '../../lib/media';
+import { getCurrentYearMedia } from '../../lib/media';
 
-const allMedia = getAllMedia();
+const allMedia = getCurrentYearMedia();
 ---
 
 <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">

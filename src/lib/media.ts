@@ -57,3 +57,22 @@ export function getAllMedia(): MediaItem[] {
 
   return all;
 }
+
+/** Current year's team slugs (UNEARTHED 2025-26) */
+const CURRENT_YEAR_TEAMS = [
+  'brickbeards',
+  'fossilized-chickens',
+  'indiana-drones',
+  'robo-royals',
+];
+
+/** Get media from current year's teams only (for homepage hero) */
+export function getCurrentYearMedia(): MediaItem[] {
+  const all: MediaItem[] = [];
+
+  for (const slug of CURRENT_YEAR_TEAMS) {
+    all.push(...scanTeamDir(slug));
+  }
+
+  return all;
+}
