@@ -9,7 +9,7 @@ color: "#2D8C3C"
 awards:
   - name: "Motivate Award"
     event: "Qualifiers"
-logo: "/images/teams/brickbeards-logo.jpg"
+logo: "/images/teams/brickbeards-logo.png"
 photo: "/images/teams/brickbeards-team.jpg"
 coaches:
   - "Sandra Sugano"
