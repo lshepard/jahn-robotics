@@ -10,6 +10,7 @@ coaches:
   - "Mollie Rapp"
   - "Colleen Lavin"
   - "Jeff Shepard"
+  - "Luke Shepard"
 awards:
   - name: "Motivate Award"
     event: "Qualifiers"
@@ -27,6 +28,3 @@ In the SUBMERGED season, the Jahn Rad Robotic Chickens (Team #56600) dove into o
 
 Details about the Rad Robotic Chickens' innovation project coming soon.
 
-## Our Robot
-
-Details about our robot design and mission strategy coming soon.

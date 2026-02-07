@@ -32,6 +32,3 @@ The Fossilized Chickens took on the UNEARTHED challenge with enthusiasm, explori
 
 The Fossilized Chickens built a prototype of a hand-driven auger that archaeologists can use to test soil samples for dangerous substances before digging. The device helps keep archaeologists safe in the field by identifying hazards early in the excavation process.
 
-## Our Robot
-
-Details about our robot design and mission strategy coming soon.

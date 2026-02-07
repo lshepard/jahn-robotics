@@ -29,6 +29,3 @@ The Brickbeards earned the **Motivate Award** in their first FLL season, recogni
 
 For the UNEARTHED season, the Brickbeards built a video game showcasing archaeologists and their work. The game teaches players about the process of archaeological discovery, making the field more accessible and engaging for a wider audience.
 
-## Our Robot
-
-Details about our robot design and mission strategy coming soon.

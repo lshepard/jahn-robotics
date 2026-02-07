@@ -29,6 +29,3 @@ The Robo Royals earned the **Rising All-Star Award**, recognizing the team's gro
 
 The Robo Royals developed a 3D-printed camera system that can take 3D scans of artifacts. This allows archaeologists to create digital replicas they can study remotely, protecting the originals in case artifacts are damaged or broken during transit.
 
-## Our Robot
-
-Details about our robot design and mission strategy coming soon.

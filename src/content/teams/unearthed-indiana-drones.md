@@ -30,6 +30,3 @@ In their rookie season, the Indiana Drones made an incredible impact, earning th
 
 The Indiana Drones designed a delivery robot that can help archaeologists with supplies in tight spaces and caves. The robot navigates confined environments where it's difficult for people to carry equipment, making fieldwork safer and more efficient.
 
-## Our Robot
-
-Details about our robot design and mission strategy coming soon.
