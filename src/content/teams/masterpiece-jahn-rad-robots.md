@@ -18,6 +18,7 @@ awards:
   - name: "Core Values Award"
     event: "Sectionals"
 nextTeam: "submerged/rad-robotic-chickens"
+logo: "/images/teams/jahn-rad-robots-team.png"
 photo: "/images/teams/jahn-rad-robots-team.png"
 ---
 

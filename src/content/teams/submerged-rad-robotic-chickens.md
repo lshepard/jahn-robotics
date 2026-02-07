@@ -5,6 +5,7 @@ slug: "rad-robotic-chickens"
 season: "submerged"
 seasonYear: "2024-25"
 color: "#F59E0B"
+logo: "/images/teams/rad-robotic-chickens-team.png"
 photo: "/images/teams/rad-robotic-chickens-team.png"
 coaches:
   - "Mollie Rapp"
