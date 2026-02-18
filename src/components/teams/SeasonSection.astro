@@ -9,6 +9,7 @@ interface TeamData {
     seasonYear: string;
     color: string;
     awards?: { name: string; event: string }[];
+    advancement?: string;
     logo?: string;
     tagline?: string;
     previousTeam?: string;
@@ -65,11 +66,6 @@ function darken(hex: string, amount: number): string {
       <div>
         <div class="flex items-center gap-3 mb-1">
           <h2 class="text-2xl sm:text-3xl font-bold text-white drop-shadow-md">{seasonName}</h2>
-          {isCurrent && (
-            <span class="bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm">
-              Current
-            </span>
-          )}
         </div>
         <p class="text-white/80 drop-shadow-sm">
           {seasonYear} &middot; {fllTheme} &middot; {teams.length} {teams.length === 1 ? 'team' : 'teams'}
@@ -129,6 +125,14 @@ function darken(hex: string, amount: number): string {
               </h3>
             </div>
           </a>
+          {/* Advancement badge */}
+          {team.data.advancement && (
+            <div class="flex justify-center mt-2">
+              <span class={`text-xs font-semibold px-3 py-1 rounded-full ${team.data.advancement === 'State' ? 'bg-electric text-white' : 'bg-gray-200 text-gray-700'}`}>
+                Advanced to {team.data.advancement}
+              </span>
+            </div>
+          )}
         </div>
       ))}
     </div>

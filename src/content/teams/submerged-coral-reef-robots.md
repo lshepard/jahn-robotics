@@ -10,6 +10,7 @@ photo: "/images/teams/coral-reef-robots-team.png"
 awards:
   - name: "Engineering Excellence Award"
     event: "Qualifiers"
+advancement: "Sectionals"
 coaches:
   - "Michael Kilkelly"
   - "Johnny Vivoda"

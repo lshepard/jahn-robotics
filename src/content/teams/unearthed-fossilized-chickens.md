@@ -11,6 +11,7 @@ awards:
     event: "Qualifiers"
   - name: "Champion's Award Finalist"
     event: "Sectionals"
+advancement: "State"
 logo: "/images/teams/fossilized-chickens-logo.png"
 photo: "/images/teams/fossilized-chickens-team.png"
 coaches:
@@ -26,7 +27,7 @@ previousTeam: "submerged/rad-robotic-chickens"
 
 ## Our Season
 
-The Fossilized Chickens took on the UNEARTHED challenge with enthusiasm, exploring how archaeology helps us uncover the past to discover the future. The team earned the **Robot Design Award** at qualifiers for their innovative robot construction and programming.
+The Fossilized Chickens took on the UNEARTHED challenge with enthusiasm, exploring how archaeology helps us uncover the past to discover the future. The team earned the **Robot Design Award** at qualifiers for their innovative robot construction and programming, then advanced through sectionals to compete at the **Illinois State Championship**!
 
 ## Innovation Project
 

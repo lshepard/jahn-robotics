@@ -9,6 +9,7 @@ color: "#2D8C3C"
 awards:
   - name: "Motivate Award"
     event: "Qualifiers"
+advancement: "Sectionals"
 logo: "/images/teams/brickbeards-logo.png"
 photo: "/images/teams/brickbeards-team.jpg"
 coaches:

@@ -15,6 +15,7 @@ const teams = defineCollection({
       name: z.string(),
       event: z.string(),
     })).optional(),
+    advancement: z.string().optional(),
     logo: z.string().optional(),
     photo: z.string().optional(),
     coaches: z.array(z.string()),

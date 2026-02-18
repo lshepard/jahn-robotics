@@ -13,6 +13,7 @@ interface Props {
   seasonYear: string;
   color: string;
   awards?: { name: string; event: string }[];
+  advancement?: string;
   logo?: string;
   photo?: string;
   coaches: string[];
@@ -22,7 +23,7 @@ interface Props {
 }
 
 const {
-  name, number, slug, season, seasonYear, color, awards,
+  name, number, slug, season, seasonYear, color, awards, advancement,
   logo, photo, coaches, members, previousTeam, nextTeam
 } = Astro.props;
 
@@ -158,13 +159,20 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
     </section>
   )}
 
-  <!-- Awards section -->
-  {awards && awards.length > 0 && (
+  <!-- Awards & Advancement section -->
+  {(awards && awards.length > 0) || advancement === 'State' ? (
     <section class="py-12 sm:py-16 bg-gradient-to-b from-orange/5 to-transparent">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Awards</h2>
         <div class="flex flex-wrap justify-center gap-10">
-          {awards.map(award => {
+          {advancement === 'State' && (
+            <div class="flex flex-col items-center text-center max-w-xs">
+              <img src="/images/fll/illinois.png" alt="Illinois" class="w-20 h-auto drop-shadow-lg mb-3" />
+              <p class="font-bold text-gray-900 text-lg">Advanced to State</p>
+              <p class="text-electric font-medium text-sm mb-2">Championship</p>
+            </div>
+          )}
+          {awards && awards.map(award => {
             const description = getAwardDescription(award.name);
             return (
               <div class="flex flex-col items-center text-center max-w-xs">
@@ -180,7 +188,7 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
         </div>
       </div>
     </section>
-  )}
+  ) : null}
 
   <!-- Media gallery -->
   {teamMedia.length > 0 && (

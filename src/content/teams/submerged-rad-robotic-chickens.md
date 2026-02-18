@@ -17,6 +17,7 @@ awards:
     event: "Qualifiers"
   - name: "Innovation Project Award"
     event: "Sectionals"
+advancement: "Sectionals"
 previousTeam: "masterpiece/jahn-rad-robots"
 nextTeam: "unearthed/fossilized-chickens"
 ---

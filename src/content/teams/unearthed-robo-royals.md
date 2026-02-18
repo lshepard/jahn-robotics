@@ -9,6 +9,7 @@ color: "#E8A817"
 awards:
   - name: "Rising All-Star Award"
     event: "Qualifiers"
+advancement: "Sectionals"
 logo: "/images/teams/robo-royals-logo.png"
 photo: "/images/teams/robo-royals-team.png"
 coaches:

@@ -11,6 +11,9 @@ awards:
     event: "Qualifiers"
   - name: "Robot Design Award"
     event: "Sectionals"
+  - name: "Motivate Award"
+    event: "State"
+advancement: "State"
 logo: "/images/teams/indiana-drones-logo.png"
 photo: "/images/teams/indiana-drones-team.png"
 coaches:
@@ -24,7 +27,7 @@ members:
 
 ## Our Season
 
-In their rookie season, the Indiana Drones made an incredible impact, earning the prestigious **Champion's Award** at qualifiers. This award recognizes the team that best embodies the FLL experience across all judging categories.
+In their rookie season, the Indiana Drones made an incredible impact, earning the prestigious **Champion's Award** at qualifiers. This award recognizes the team that best embodies the FLL experience across all judging categories. The team continued their success at sectionals with the **Robot Design Award**, then capped off their amazing season by winning the **Motivate Award at the Illinois State Championship**!
 
 ## Innovation Project
 
