@@ -96,16 +96,13 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
             </div>
           )}
           <div class="flex-1">
-            <div class="flex items-center gap-3 mb-2 flex-wrap">
-              <h1 class="text-3xl sm:text-4xl font-bold text-white drop-shadow-md">{name}</h1>
-              <span
-                class="text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm"
-                style={`background: ${color}40; color: white;`}
-              >
-                {seasonDisplay}
+            <h1 class="text-3xl sm:text-4xl font-bold text-white drop-shadow-md mb-2">{name}</h1>
+            <div class="flex items-center gap-3 flex-wrap">
+              <span class="bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-3 py-1 rounded-full">
+                {seasonDisplay} · {seasonYear}
               </span>
+              <span class="text-white/70 text-sm font-medium">#{number}</span>
             </div>
-            <p class="text-white/80 drop-shadow-sm">Team #{number} &middot; {seasonYear}</p>
           </div>
           {seasonLogo && (
             <img
@@ -133,16 +130,13 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
             </div>
           )}
           <div class="flex-1">
-            <div class="flex items-center gap-3 mb-2 flex-wrap">
-              <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">{name}</h1>
-              <span
-                class="text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider"
-                style={`background: ${color}20; color: ${color}`}
-              >
-                {seasonDisplay}
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">{name}</h1>
+            <div class="flex items-center gap-3 flex-wrap">
+              <span class="bg-gray-200 text-gray-700 text-sm font-medium px-3 py-1 rounded-full">
+                {seasonDisplay} · {seasonYear}
               </span>
+              <span class="text-gray-500 text-sm font-medium">#{number}</span>
             </div>
-            <p class="text-gray-500">Team #{number} &middot; {seasonYear}</p>
           </div>
           {seasonLogo && (
             <img
@@ -160,32 +154,38 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
   )}
 
   <!-- Awards & Advancement section -->
-  {(awards && awards.length > 0) || advancement === 'State' ? (
-    <section class="py-12 sm:py-16 bg-gradient-to-b from-orange/5 to-transparent">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Awards</h2>
-        <div class="flex flex-wrap justify-center gap-10">
-          {advancement === 'State' && (
-            <div class="flex flex-col items-center text-center max-w-xs">
-              <img src="/images/fll/illinois.png" alt="Illinois" class="w-20 h-auto drop-shadow-lg mb-3" />
-              <p class="font-bold text-gray-900 text-lg">Advanced to State</p>
-              <p class="text-electric font-medium text-sm mb-2">Championship</p>
-            </div>
-          )}
-          {awards && awards.map(award => {
-            const description = getAwardDescription(award.name);
-            return (
-              <div class="flex flex-col items-center text-center max-w-xs">
-                <img src="/images/fll/trophy.png" alt="Trophy" class="w-20 h-auto drop-shadow-lg mb-3" />
-                <p class="font-bold text-gray-900 text-lg">{award.name}</p>
-                <p class="text-orange font-medium text-sm mb-2">{award.event}</p>
-                {description && (
-                  <p class="text-gray-500 text-sm leading-relaxed">{description}</p>
-                )}
+  {(awards && awards.length > 0) || advancement ? (
+    <section class="py-12 sm:py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+        {/* Awards first */}
+        {awards && awards.map(award => {
+          const description = getAwardDescription(award.name);
+          return (
+            <div class="bg-white rounded-xl p-5 flex items-center gap-5 shadow-sm border border-gray-100">
+              <div class="w-20 h-20 rounded-xl bg-amber-50 flex items-center justify-center flex-shrink-0">
+                <img src="/images/fll/trophy.png" alt="Trophy" class="w-16 h-16 object-contain" />
               </div>
-            );
-          })}
-        </div>
+              <div class="flex-1 min-w-0">
+                <p class="font-bold text-gray-900 text-lg">{award.name}</p>
+                <p class="font-semibold text-orange">{award.event}</p>
+                {description && <p class="text-gray-500 text-sm">{description}</p>}
+              </div>
+            </div>
+          );
+        })}
+        {/* Advancement last */}
+        {advancement && (
+          <div class="bg-white rounded-xl p-5 flex items-center gap-5 shadow-sm border border-gray-100">
+            <div class="w-20 h-20 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
+              <img src="/images/fll/illinois.png" alt="Illinois" class="w-16 h-16 object-contain" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="font-bold text-gray-900 text-lg">Advanced to {advancement}</p>
+              <p class="font-semibold text-electric">{advancement === 'State' ? 'State' : 'Sectionals'}</p>
+              <p class="text-gray-500 text-sm">{advancement === 'State' ? 'Illinois State Championship' : 'Sectional Championship'}</p>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   ) : null}
