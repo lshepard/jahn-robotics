@@ -176,8 +176,12 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
         {/* Advancement last */}
         {advancement && (
           <div class="bg-white rounded-xl p-5 flex items-center gap-5 shadow-sm border border-gray-100">
-            <div class="w-20 h-20 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0">
-              <img src="/images/fll/illinois.png" alt="Illinois" class="w-16 h-16 object-contain" />
+            <div class={`w-20 h-20 rounded-xl flex items-center justify-center flex-shrink-0 ${advancement === 'State' ? 'bg-sky-50' : 'bg-amber-50'}`}>
+              {advancement === 'State' ? (
+                <img src="/images/fll/illinois.png" alt="Illinois" class="w-16 h-16 object-contain" />
+              ) : (
+                <img src="/images/fll/trophy.png" alt="Trophy" class="w-16 h-16 object-contain" />
+              )}
             </div>
             <div class="flex-1 min-w-0">
               <p class="font-bold text-gray-900 text-lg">Advanced to {advancement}</p>
