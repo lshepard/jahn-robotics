@@ -14,6 +14,7 @@ const navLinks = [
   { href: '/calendar/', label: 'Calendar' },
   { href: '/volunteers/', label: 'Volunteers' },
   { href: '/about/', label: 'About' },
+  { href: 'https://xrp-code.jahnrobotics.org/', label: 'XRP Code Editor', external: true },
 ];
 
 function isActive(href: string) {
@@ -38,6 +39,8 @@ function isActive(href: string) {
         {navLinks.map((link) => (
           <a
             href={link.href}
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noopener noreferrer' : undefined}
             class:list={[
               'px-4 py-2 rounded-lg text-sm font-medium transition-colors',
               isActive(link.href)
@@ -72,6 +75,8 @@ function isActive(href: string) {
         {navLinks.map((link) => (
           <a
             href={link.href}
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noopener noreferrer' : undefined}
             class:list={[
               'px-4 py-3 rounded-lg text-sm font-medium transition-colors',
               isActive(link.href)
