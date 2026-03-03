@@ -19,7 +19,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </section>
 
   <!-- Important Note -->
-  <section class="py-8 bg-amber-50 border-b border-amber-200">
+  <section class="py-6 bg-amber-50 border-b border-amber-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-start gap-4">
         <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center shrink-0">
@@ -37,162 +37,101 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Submerged Section -->
-  <section class="py-12 sm:py-16 bg-gray-50">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-8">
-        <span class="text-4xl">🌊</span>
+  <!-- SUBMERGED Section -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/fll/submerged-bg.png');"></div>
+    <div class="absolute inset-0 bg-black/60"></div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <!-- Season Header -->
+      <div class="flex items-center gap-4 mb-8">
+        <img src="/images/fll/submergedlogo.png" alt="Submerged logo" class="h-16 w-auto rounded-full" />
         <div>
-          <h2 class="text-2xl font-bold text-navy">FLL SUBMERGED</h2>
-          <p class="text-gray-500">2024-25 Season</p>
+          <h2 class="text-2xl font-bold text-white">SUBMERGED</h2>
+          <p class="text-white/70">2024-25 Season</p>
         </div>
       </div>
 
-      <!-- Best Resource -->
-      <div class="bg-gradient-to-br from-electric to-electric-dark rounded-2xl p-6 mb-8 text-white">
-        <div class="flex items-center gap-2 mb-2">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-          <span class="font-semibold">Best Resource</span>
-        </div>
-        <h3 class="text-xl font-bold mb-2">Team 4924 Red Beard Pandas</h3>
-        <p class="opacity-90 mb-4">Simple solutions for ALL missions with code screenshots. Great for beginners!</p>
-        <a href="https://www.tuxedopandas.org/Outreach/fll-submerged-2024-25" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg font-medium transition-colors">
-          View All Solutions
+      <!-- Simple Solutions Video -->
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-6">
+        <h3 class="text-lg font-bold text-white mb-2">Simple Solutions for All Missions</h3>
+        <p class="text-white/80 text-sm mb-4">Team Red Beard Pandas shows beginner-friendly solutions using a basic robot.</p>
+        <a href="https://www.tuxedopandas.org/Outreach/fll-submerged-2024-25" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+          View All Submerged Solutions
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
         </a>
       </div>
 
-      <!-- Mission Videos -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div class="p-6 border-b border-gray-100">
-          <h3 class="font-bold text-navy">Video Solutions by Mission</h3>
+      <!-- Shark Mission Video -->
+      <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+        <div class="aspect-video">
+          <iframe 
+            src="https://www.youtube.com/embed/-zCvxOW1tUs" 
+            title="Shark Mission Solution"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
         </div>
-        <div class="divide-y divide-gray-100">
-          <a href="https://www.youtube.com/watch?v=-zCvxOW1tUs" target="_blank" rel="noopener" class="flex items-center justify-between p-4 hover:bg-gray-50 transition-colors">
-            <div class="flex items-center gap-3">
-              <span class="w-8 h-8 bg-navy text-white rounded-lg flex items-center justify-center text-sm font-bold">02</span>
-              <span class="font-medium text-gray-900">Shark</span>
-            </div>
-            <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </a>
-          <a href="https://www.youtube.com/watch?v=OzX-Y10U9dA" target="_blank" rel="noopener" class="flex items-center justify-between p-4 hover:bg-gray-50 transition-colors">
-            <div class="flex items-center gap-3">
-              <span class="w-8 h-8 bg-navy text-white rounded-lg flex items-center justify-center text-sm font-bold">02</span>
-              <span class="font-medium text-gray-900">Shark (Ultimate Guide)</span>
-            </div>
-            <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </a>
-          <a href="https://www.youtube.com/playlist?list=PLrxSaAUCcYu7Fdg1AvTcl_5zuhCsg3rrY" target="_blank" rel="noopener" class="flex items-center justify-between p-4 hover:bg-gray-50 transition-colors">
-            <div class="flex items-center gap-3">
-              <span class="w-8 h-8 bg-electric text-white rounded-lg flex items-center justify-center text-sm font-bold">ALL</span>
-              <span class="font-medium text-gray-900">Tech Warriors Playlist (All Missions)</span>
-            </div>
-            <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </a>
+        <div class="p-4">
+          <h3 class="font-bold text-navy">M02: Shark</h3>
+          <p class="text-gray-600 text-sm">A simple push mechanism to release the shark.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Unearthed Section -->
-  <section class="py-12 sm:py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-8">
-        <span class="text-4xl">⛏️</span>
+  <!-- UNEARTHED Section -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/fll/unearthed-bg.png');"></div>
+    <div class="absolute inset-0 bg-black/60"></div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <!-- Season Header -->
+      <div class="flex items-center gap-4 mb-8">
+        <img src="/images/fll/fll_unearthed_1240x860.png" alt="Unearthed logo" class="h-16 w-auto rounded-lg" />
         <div>
-          <h2 class="text-2xl font-bold text-navy">FLL UNEARTHED</h2>
-          <p class="text-gray-500">2025-26 Season</p>
+          <h2 class="text-2xl font-bold text-white">UNEARTHED</h2>
+          <p class="text-white/70">2025-26 Season</p>
         </div>
       </div>
 
-      <!-- Best Resource -->
-      <div class="bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl p-6 mb-8 text-white">
-        <div class="flex items-center gap-2 mb-2">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-          <span class="font-semibold">Best Resource</span>
+      <!-- All Missions Video -->
+      <div class="bg-white rounded-2xl overflow-hidden shadow-lg mb-6">
+        <div class="aspect-video">
+          <iframe 
+            src="https://www.youtube.com/embed/EeyWueNOUAg" 
+            title="All Unearthed Missions Solved"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
         </div>
-        <h3 class="text-xl font-bold mb-2">All Missions Solved — Simple Robot</h3>
-        <p class="opacity-90 mb-4">Uses ONLY base SPIKE Prime set. Solves every mission!</p>
-        <a href="https://www.youtube.com/watch?v=EeyWueNOUAg" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg font-medium transition-colors">
-          Watch Full Video
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </a>
+        <div class="p-4">
+          <h3 class="font-bold text-navy">All Missions Solved — Simple Robot</h3>
+          <p class="text-gray-600 text-sm">Uses only the base SPIKE Prime set. Great starting point!</p>
+        </div>
       </div>
 
-      <!-- Mission Videos -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-        <div class="p-6 border-b border-gray-100">
-          <h3 class="font-bold text-navy">Video Solutions by Mission</h3>
+      <!-- Map Reveal Video -->
+      <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+        <div class="aspect-video">
+          <iframe 
+            src="https://www.youtube.com/embed/rw1TWlJxgmU" 
+            title="Map Reveal Mission Solution"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
         </div>
-        <div class="divide-y divide-gray-100">
-          <a href="https://www.youtube.com/watch?v=rw1TWlJxgmU" target="_blank" rel="noopener" class="flex items-center justify-between p-4 hover:bg-gray-50 transition-colors">
-            <div class="flex items-center gap-3">
-              <span class="w-8 h-8 bg-navy text-white rounded-lg flex items-center justify-center text-sm font-bold">02</span>
-              <span class="font-medium text-gray-900">Map Reveal</span>
-            </div>
-            <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </a>
-          <a href="https://www.youtube.com/watch?v=y6RxJpgBOQM" target="_blank" rel="noopener" class="flex items-center justify-between p-4 hover:bg-gray-50 transition-colors">
-            <div class="flex items-center gap-3">
-              <span class="w-8 h-8 bg-navy text-white rounded-lg flex items-center justify-center text-sm font-bold">03</span>
-              <span class="font-medium text-gray-900">Mineshaft Explorer</span>
-            </div>
-            <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </a>
-          <a href="https://www.youtube.com/watch?v=1yyh08hg398" target="_blank" rel="noopener" class="flex items-center justify-between p-4 hover:bg-gray-50 transition-colors">
-            <div class="flex items-center gap-3">
-              <span class="w-8 h-8 bg-navy text-white rounded-lg flex items-center justify-center text-sm font-bold">13</span>
-              <span class="font-medium text-gray-900">Statue Rebuild</span>
-            </div>
-            <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </a>
-          <a href="https://www.youtube.com/playlist?list=PLftVV0M_ZZIsjcvgb5OI_wmgmt9b10iit" target="_blank" rel="noopener" class="flex items-center justify-between p-4 hover:bg-gray-50 transition-colors">
-            <div class="flex items-center gap-3">
-              <span class="w-8 h-8 bg-electric text-white rounded-lg flex items-center justify-center text-sm font-bold">ALL</span>
-              <span class="font-medium text-gray-900">Tech Warriors Playlist (All Missions)</span>
-            </div>
-            <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </a>
-          <a href="https://www.youtube.com/watch?v=dYJuZzPJmco" target="_blank" rel="noopener" class="flex items-center justify-between p-4 hover:bg-gray-50 transition-colors">
-            <div class="flex items-center gap-3">
-              <span class="w-8 h-8 bg-green-600 text-white rounded-lg flex items-center justify-center text-sm font-bold">545</span>
-              <span class="font-medium text-gray-900">Archy Robot — Max Points Run</span>
-            </div>
-            <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </a>
+        <div class="p-4">
+          <h3 class="font-bold text-navy">M02: Map Reveal</h3>
+          <p class="text-gray-600 text-sm">Simple solution scoring all 30 points.</p>
         </div>
       </div>
     </div>
@@ -201,70 +140,34 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <!-- Tips Section -->
   <section class="py-12 sm:py-16 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-navy mb-8 text-center">Tips for Students</h2>
+      <h2 class="text-2xl font-bold text-navy mb-8 text-center">Tips for Watching</h2>
       
       <div class="grid gap-4 sm:grid-cols-2">
         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="text-2xl">👀</span>
-            <h3 class="font-bold text-navy">Watch for IDEAS</h3>
-          </div>
+          <h3 class="font-bold text-navy mb-2">Watch for IDEAS</h3>
           <p class="text-gray-600 text-sm">Don't copy — use videos as inspiration for your own designs.</p>
         </div>
         
         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="text-2xl">✏️</span>
-            <h3 class="font-bold text-navy">Pause and Sketch</h3>
-          </div>
+          <h3 class="font-bold text-navy mb-2">Pause and Sketch</h3>
           <p class="text-gray-600 text-sm">Draw what you see before building. It helps you understand.</p>
         </div>
         
         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="text-2xl">🔧</span>
-            <h3 class="font-bold text-navy">Notice the Attachment</h3>
-          </div>
+          <h3 class="font-bold text-navy mb-2">Notice the Attachment</h3>
           <p class="text-gray-600 text-sm">How did they grab, push, or flip it? That's the key!</p>
         </div>
         
         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="text-2xl">🎯</span>
-            <h3 class="font-bold text-navy">Try YOUR Idea First</h3>
-          </div>
+          <h3 class="font-bold text-navy mb-2">Try YOUR Idea First</h3>
           <p class="text-gray-600 text-sm">Build your solution, then compare to the video.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- More Resources -->
-  <section class="py-12 sm:py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-navy mb-8 text-center">More Resources</h2>
-      
-      <div class="grid gap-4 sm:grid-cols-3">
-        <a href="https://flltutorials.com" target="_blank" rel="noopener" class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:border-electric hover:shadow-md transition-all text-center">
-          <h3 class="font-bold text-navy mb-1">FLL Tutorials</h3>
-          <p class="text-gray-500 text-sm">Lessons & worksheets</p>
-        </a>
-        
-        <a href="https://primelessons.org" target="_blank" rel="noopener" class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:border-electric hover:shadow-md transition-all text-center">
-          <h3 class="font-bold text-navy mb-1">PrimeLessons</h3>
-          <p class="text-gray-500 text-sm">SPIKE programming tutorials</p>
-        </a>
-        
-        <a href="https://www.fllcasts.com" target="_blank" rel="noopener" class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:border-electric hover:shadow-md transition-all text-center">
-          <h3 class="font-bold text-navy mb-1">FLLCasts</h3>
-          <p class="text-gray-500 text-sm">Building instructions</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- Back Link -->
-  <section class="py-8 bg-gray-50">
+  <section class="py-8">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <a href="/classes/intro-to-robotics" class="inline-flex items-center gap-2 text-electric hover:text-electric-dark font-medium transition-colors">
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
