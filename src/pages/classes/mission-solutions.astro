@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Mission Solutions" description="Video tutorials and inspiration for FLL mission challenges">
+  <!-- Header -->
+  <section class="relative pt-28 sm:pt-32 pb-16 sm:pb-24 bg-navy">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-block bg-electric/20 text-electric font-semibold text-sm px-4 py-2 rounded-full mb-6">
+        Student Resources
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4 animate-on-scroll">
+        Mission Solutions
+      </h1>
+      <p class="text-xl text-white/80 animate-on-scroll">
+        Watch for inspiration, then design YOUR own solutions!
+      </p>
+    </div>
+  </section>
+
+  <!-- Important Note -->
+  <section class="py-6 bg-amber-50 border-b border-amber-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-amber-800 mb-1">Remember the 3 Ways Rule!</h3>
+          <p class="text-amber-700">
+            Watch these videos for <strong>ideas</strong>, not to copy. Design your OWN 3 different solutions before picking one!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBMERGED Section -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/fll/submerged-bg.png');"></div>
+    <div class="absolute inset-0 bg-black/60"></div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <!-- Season Header -->
+      <div class="flex items-center gap-4 mb-8">
+        <img src="/images/fll/submergedlogo.png" alt="Submerged logo" class="h-16 w-auto rounded-full" />
+        <div>
+          <h2 class="text-2xl font-bold text-white">SUBMERGED</h2>
+          <p class="text-white/70">2024-25 Season</p>
+        </div>
+      </div>
+
+      <!-- Simple Solutions Video -->
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-6">
+        <h3 class="text-lg font-bold text-white mb-2">Simple Solutions for All Missions</h3>
+        <p class="text-white/80 text-sm mb-4">Team Red Beard Pandas shows beginner-friendly solutions using a basic robot.</p>
+        <a href="https://www.tuxedopandas.org/Outreach/fll-submerged-2024-25" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+          View All Submerged Solutions
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Shark Mission Video -->
+      <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+        <div class="aspect-video">
+          <iframe 
+            src="https://www.youtube.com/embed/-zCvxOW1tUs" 
+            title="Shark Mission Solution"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-navy">M02: Shark</h3>
+          <p class="text-gray-600 text-sm">A simple push mechanism to release the shark.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNEARTHED Section -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/fll/unearthed-bg.png');"></div>
+    <div class="absolute inset-0 bg-black/60"></div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <!-- Season Header -->
+      <div class="flex items-center gap-4 mb-8">
+        <img src="/images/fll/fll_unearthed_1240x860.png" alt="Unearthed logo" class="h-16 w-auto rounded-lg" />
+        <div>
+          <h2 class="text-2xl font-bold text-white">UNEARTHED</h2>
+          <p class="text-white/70">2025-26 Season</p>
+        </div>
+      </div>
+
+      <!-- All Missions Video -->
+      <div class="bg-white rounded-2xl overflow-hidden shadow-lg mb-6">
+        <div class="aspect-video">
+          <iframe 
+            src="https://www.youtube.com/embed/EeyWueNOUAg" 
+            title="All Unearthed Missions Solved"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-navy">All Missions Solved — Simple Robot</h3>
+          <p class="text-gray-600 text-sm">Uses only the base SPIKE Prime set. Great starting point!</p>
+        </div>
+      </div>
+
+      <!-- Map Reveal Video -->
+      <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+        <div class="aspect-video">
+          <iframe 
+            src="https://www.youtube.com/embed/rw1TWlJxgmU" 
+            title="Map Reveal Mission Solution"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-navy">M02: Map Reveal</h3>
+          <p class="text-gray-600 text-sm">Simple solution scoring all 30 points.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips Section -->
+  <section class="py-12 sm:py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-navy mb-8 text-center">Tips for Watching</h2>
+      
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+          <h3 class="font-bold text-navy mb-2">Watch for IDEAS</h3>
+          <p class="text-gray-600 text-sm">Don't copy — use videos as inspiration for your own designs.</p>
+        </div>
+        
+        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+          <h3 class="font-bold text-navy mb-2">Pause and Sketch</h3>
+          <p class="text-gray-600 text-sm">Draw what you see before building. It helps you understand.</p>
+        </div>
+        
+        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+          <h3 class="font-bold text-navy mb-2">Notice the Attachment</h3>
+          <p class="text-gray-600 text-sm">How did they grab, push, or flip it? That's the key!</p>
+        </div>
+        
+        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+          <h3 class="font-bold text-navy mb-2">Try YOUR Idea First</h3>
+          <p class="text-gray-600 text-sm">Build your solution, then compare to the video.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back Link -->
+  <section class="py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <a href="/classes/intro-to-robotics" class="inline-flex items-center gap-2 text-electric hover:text-electric-dark font-medium transition-colors">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Intro Class
+      </a>
+    </div>
+  </section>
+</BaseLayout>
