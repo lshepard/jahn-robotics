@@ -42,104 +42,98 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       
       <div class="grid gap-6 md:grid-cols-2">
         <!-- Speed Skating -->
-        <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center text-2xl">
-              ⛸️
+        <div class="event-card rounded-2xl overflow-hidden shadow-lg">
+          <div class="event-card-bg" style="background-image: url('/images/olympics/speed-skating.png');">
+            <div class="event-card-overlay">
+              <h3 class="text-xl font-bold text-white mb-2">Speed Skating</h3>
+              <p class="text-white/90 text-sm mb-3">
+                Race against the clock! Robots complete a full circle around the classroom as fast as possible. Fastest time wins.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-white/20 text-white text-xs px-2 py-1 rounded-full">Speed</span>
+                <span class="bg-white/20 text-white text-xs px-2 py-1 rounded-full">Motor Control</span>
+              </div>
             </div>
-            <h3 class="text-lg font-bold text-navy">Speed Skating</h3>
-          </div>
-          <p class="text-gray-700 mb-4">
-            Race against the clock! Robots complete a full circle around the classroom as fast as possible. Fastest time wins.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Speed</span>
-            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Motor Control</span>
           </div>
         </div>
 
         <!-- Skeleton -->
-        <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center text-2xl">
-              🛷
+        <div class="event-card rounded-2xl overflow-hidden shadow-lg">
+          <div class="event-card-bg" style="background-image: url('/images/olympics/skeleton-luge.png');">
+            <div class="event-card-overlay">
+              <h3 class="text-xl font-bold text-white mb-2">Skeleton</h3>
+              <p class="text-white/90 text-sm mb-3">
+                Navigate a maze course on paper with black tape — driver controlled! Guide your robot through without touching the walls.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-white/20 text-white text-xs px-2 py-1 rounded-full">Driving</span>
+                <span class="bg-white/20 text-white text-xs px-2 py-1 rounded-full">Precision</span>
+              </div>
             </div>
-            <h3 class="text-lg font-bold text-navy">Skeleton</h3>
-          </div>
-          <p class="text-gray-700 mb-4">
-            Navigate a maze course on paper with black tape — driver controlled! Guide your robot through without touching the walls.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Driving</span>
-            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Precision</span>
           </div>
         </div>
 
         <!-- Luge -->
-        <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center text-2xl">
-              🎿
+        <div class="event-card rounded-2xl overflow-hidden shadow-lg">
+          <div class="event-card-bg" style="background-image: url('/images/olympics/skeleton-luge.png');">
+            <div class="event-card-overlay">
+              <h3 class="text-xl font-bold text-white mb-2">Luge</h3>
+              <p class="text-white/90 text-sm mb-3">
+                Same maze, but fully autonomous! Program your robot to follow the course using its light sensor. No human control allowed.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-white/20 text-white text-xs px-2 py-1 rounded-full">Line Following</span>
+                <span class="bg-white/20 text-white text-xs px-2 py-1 rounded-full">Sensors</span>
+              </div>
             </div>
-            <h3 class="text-lg font-bold text-navy">Luge</h3>
-          </div>
-          <p class="text-gray-700 mb-4">
-            Same maze, but fully autonomous! Program your robot to follow the course using its light sensor. No human control allowed.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Line Following</span>
-            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Sensors</span>
           </div>
         </div>
 
         <!-- Hockey -->
-        <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center text-2xl">
-              🏒
+        <div class="event-card rounded-2xl overflow-hidden shadow-lg">
+          <div class="event-card-bg" style="background-image: url('/images/olympics/hockey.png');">
+            <div class="event-card-overlay">
+              <h3 class="text-xl font-bold text-white mb-2">Hockey</h3>
+              <p class="text-white/90 text-sm mb-3">
+                2v2 robot soccer on the FLL table! Work with a teammate to score goals while defending your own. Teamwork is key.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-white/20 text-white text-xs px-2 py-1 rounded-full">Strategy</span>
+                <span class="bg-white/20 text-white text-xs px-2 py-1 rounded-full">Teamwork</span>
+              </div>
             </div>
-            <h3 class="text-lg font-bold text-navy">Hockey</h3>
-          </div>
-          <p class="text-gray-700 mb-4">
-            2v2 robot soccer on the FLL table! Work with a teammate to score goals while defending your own. Teamwork is key.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Strategy</span>
-            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Teamwork</span>
           </div>
         </div>
 
         <!-- Curling -->
-        <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center text-2xl">
-              🥌
+        <div class="event-card rounded-2xl overflow-hidden shadow-lg">
+          <div class="event-card-bg" style="background-image: url('/images/olympics/curling.png');">
+            <div class="event-card-overlay">
+              <h3 class="text-xl font-bold text-white mb-2">Curling</h3>
+              <p class="text-white/90 text-sm mb-3">
+                Push a small ball or disc onto a target. Closest to the center wins! Precision and gentle control are everything.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-white/20 text-white text-xs px-2 py-1 rounded-full">Precision</span>
+                <span class="bg-white/20 text-white text-xs px-2 py-1 rounded-full">Control</span>
+              </div>
             </div>
-            <h3 class="text-lg font-bold text-navy">Curling</h3>
-          </div>
-          <p class="text-gray-700 mb-4">
-            Push a small ball or disc onto a target. Closest to the center wins! Precision and gentle control are everything.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Precision</span>
-            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Control</span>
           </div>
         </div>
 
         <!-- Figure Skating -->
-        <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center text-2xl">
-              💃
+        <div class="event-card rounded-2xl overflow-hidden shadow-lg">
+          <div class="event-card-bg" style="background-image: url('/images/olympics/figure-skating.png');">
+            <div class="event-card-overlay">
+              <h3 class="text-xl font-bold text-white mb-2">Figure Skating</h3>
+              <p class="text-white/90 text-sm mb-3">
+                Dress up your robot and program a dance routine to music! Judged on creativity, choreography, and style.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-white/20 text-white text-xs px-2 py-1 rounded-full">Creativity</span>
+                <span class="bg-white/20 text-white text-xs px-2 py-1 rounded-full">Programming</span>
+              </div>
             </div>
-            <h3 class="text-lg font-bold text-navy">Figure Skating</h3>
-          </div>
-          <p class="text-gray-700 mb-4">
-            Dress up your robot and program a dance routine to music! Judged on creativity, choreography, and style.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Creativity</span>
-            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Programming</span>
           </div>
         </div>
       </div>
@@ -172,3 +166,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .event-card {
+    transition: transform 0.2s ease;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .event-card-bg {
+    background-size: cover;
+    background-position: center;
+    min-height: 280px;
+  }
+  
+  .event-card-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
+    min-height: 280px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+</style>
