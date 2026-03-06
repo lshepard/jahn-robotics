@@ -3,235 +3,172 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="XRP Robot Olympics" description="Winter Olympics-inspired robot competitions for Advanced Robotics">
-  <main>
-    <div class="hero" style="background: linear-gradient(135deg, #1a237e 0%, #3949ab 50%, #5c6bc0 100%); color: white; padding: 3rem 1rem; text-align: center;">
-      <h1>🏆 XRP Robot Olympics</h1>
-      <p class="subtitle">Advanced Robotics Showcase | May 6, 2026</p>
+  <!-- Header -->
+  <section class="relative pt-28 sm:pt-32 pb-16 sm:pb-24 bg-navy">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-block bg-electric/20 text-electric font-semibold text-sm px-4 py-2 rounded-full mb-6">
+        🏆 Advanced Robotics Showcase
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4 animate-on-scroll">
+        XRP Robot Olympics
+      </h1>
+      <p class="text-xl text-white/80 animate-on-scroll">
+        May 6, 2026
+      </p>
     </div>
+  </section>
 
-    <section class="intro">
-      <p>
-        Welcome to the Jahn Elementary XRP Robot Olympics! Our advanced robotics students have been 
-        programming their XRP robots all semester, and now it's time to put their skills to the test 
-        in a series of Winter Olympics-inspired competitions.
-      </p>
-      <p>
-        Each team will compete in multiple events, earning points based on performance. May the best robots win!
-      </p>
-    </section>
+  <!-- Intro -->
+  <section class="py-12 sm:py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Welcome to the Jahn Elementary XRP Robot Olympics! Our advanced robotics students have been 
+          programming their XRP robots all semester, and now it's time to put their skills to the test 
+          in a series of <strong>Winter Olympics-inspired competitions</strong>.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          Each team will compete in multiple events, earning points based on performance. Family and friends 
+          are welcome to attend and cheer on the teams!
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <section class="events">
-      <h2>🎯 The Events</h2>
+  <!-- Events Grid -->
+  <section class="py-12 sm:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-navy mb-8 text-center">🎯 The Events</h2>
       
-      <div class="event-grid">
-        <div class="event-card">
-          <div class="event-icon">⛸️</div>
-          <h3>Speed Skating</h3>
-          <p>Race against the clock! Robots complete a full circle around the classroom as fast as possible. Fastest time wins.</p>
-          <div class="skills">
-            <span class="skill-tag">Speed</span>
-            <span class="skill-tag">Motor Control</span>
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- Speed Skating -->
+        <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center text-2xl">
+              ⛸️
+            </div>
+            <h3 class="text-lg font-bold text-navy">Speed Skating</h3>
+          </div>
+          <p class="text-gray-700 mb-4">
+            Race against the clock! Robots complete a full circle around the classroom as fast as possible. Fastest time wins.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Speed</span>
+            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Motor Control</span>
           </div>
         </div>
 
-        <div class="event-card">
-          <div class="event-icon">🛷</div>
-          <h3>Skeleton</h3>
-          <p>Navigate a maze course on paper with black tape — driver controlled! Guide your robot through without touching the walls.</p>
-          <div class="skills">
-            <span class="skill-tag">Driving</span>
-            <span class="skill-tag">Precision</span>
+        <!-- Skeleton -->
+        <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center text-2xl">
+              🛷
+            </div>
+            <h3 class="text-lg font-bold text-navy">Skeleton</h3>
+          </div>
+          <p class="text-gray-700 mb-4">
+            Navigate a maze course on paper with black tape — driver controlled! Guide your robot through without touching the walls.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Driving</span>
+            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Precision</span>
           </div>
         </div>
 
-        <div class="event-card">
-          <div class="event-icon">🎿</div>
-          <h3>Luge</h3>
-          <p>Same maze, but fully autonomous! Program your robot to follow the course using its light sensor. No human control allowed.</p>
-          <div class="skills">
-            <span class="skill-tag">Line Following</span>
-            <span class="skill-tag">Sensors</span>
+        <!-- Luge -->
+        <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center text-2xl">
+              🎿
+            </div>
+            <h3 class="text-lg font-bold text-navy">Luge</h3>
+          </div>
+          <p class="text-gray-700 mb-4">
+            Same maze, but fully autonomous! Program your robot to follow the course using its light sensor. No human control allowed.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Line Following</span>
+            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Sensors</span>
           </div>
         </div>
 
-        <div class="event-card">
-          <div class="event-icon">🏒</div>
-          <h3>Hockey</h3>
-          <p>2v2 robot soccer on the FLL table! Work with a teammate to score goals while defending your own. Teamwork is key.</p>
-          <div class="skills">
-            <span class="skill-tag">Strategy</span>
-            <span class="skill-tag">Teamwork</span>
+        <!-- Hockey -->
+        <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center text-2xl">
+              🏒
+            </div>
+            <h3 class="text-lg font-bold text-navy">Hockey</h3>
+          </div>
+          <p class="text-gray-700 mb-4">
+            2v2 robot soccer on the FLL table! Work with a teammate to score goals while defending your own. Teamwork is key.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Strategy</span>
+            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Teamwork</span>
           </div>
         </div>
 
-        <div class="event-card">
-          <div class="event-icon">🥌</div>
-          <h3>Curling</h3>
-          <p>Push a small ball or disc onto a target. Closest to the center wins! Precision and gentle control are everything.</p>
-          <div class="skills">
-            <span class="skill-tag">Precision</span>
-            <span class="skill-tag">Control</span>
+        <!-- Curling -->
+        <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center text-2xl">
+              🥌
+            </div>
+            <h3 class="text-lg font-bold text-navy">Curling</h3>
+          </div>
+          <p class="text-gray-700 mb-4">
+            Push a small ball or disc onto a target. Closest to the center wins! Precision and gentle control are everything.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Precision</span>
+            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Control</span>
           </div>
         </div>
 
-        <div class="event-card">
-          <div class="event-icon">💃</div>
-          <h3>Figure Skating</h3>
-          <p>Dress up your robot and program a dance routine to music! Judged on creativity, choreography, and style.</p>
-          <div class="skills">
-            <span class="skill-tag">Creativity</span>
-            <span class="skill-tag">Programming</span>
+        <!-- Figure Skating -->
+        <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center text-2xl">
+              💃
+            </div>
+            <h3 class="text-lg font-bold text-navy">Figure Skating</h3>
+          </div>
+          <p class="text-gray-700 mb-4">
+            Dress up your robot and program a dance routine to music! Judged on creativity, choreography, and style.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Creativity</span>
+            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Programming</span>
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="schedule">
-      <h2>📅 Event Schedule</h2>
-      <p>The Robot Olympics will take place during the Advanced Robotics Showcase on <strong>Tuesday, May 6, 2026</strong>.</p>
-      <p>Family and friends are welcome to attend and cheer on the teams!</p>
-    </section>
-
-    <section class="about-xrp">
-      <h2>🤖 About XRP</h2>
-      <p>
-        The <a href="https://www.sparkfun.com/xrp" target="_blank">XRP (Experiential Robotics Platform)</a> is an 
-        affordable, programmable robot designed for education. Our advanced students use Python to program 
-        their XRPs, learning real-world coding skills while having fun with robotics.
-      </p>
-    </section>
-
-    <div class="back-link">
-      <a href="/classes/advanced-robotics">&larr; Back to Advanced Robotics</a>
     </div>
-  </main>
+  </section>
+
+  <!-- About XRP -->
+  <section class="py-12 sm:py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+        <h2 class="text-2xl font-bold text-navy mb-4">🤖 About XRP</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          The <a href="https://www.sparkfun.com/xrp" target="_blank" rel="noopener noreferrer" class="text-electric hover:text-electric-dark font-medium">XRP (Experiential Robotics Platform)</a> is an 
+          affordable, programmable robot designed for education. Our advanced students use Python to program 
+          their XRPs, learning real-world coding skills while having fun with robotics.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back Link -->
+  <section class="py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <a href="/classes/advanced-robotics" class="inline-flex items-center gap-2 text-electric hover:text-electric-dark font-medium transition-colors">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Advanced Robotics
+      </a>
+    </div>
+  </section>
 </BaseLayout>
-
-<style>
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 1rem 2rem;
-  }
-
-  .hero {
-    margin: 0 -1rem;
-    border-radius: 0 0 1rem 1rem;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .hero .subtitle {
-    font-size: 1.3rem;
-    opacity: 0.9;
-  }
-
-  .intro {
-    margin: 2rem 0;
-    font-size: 1.1rem;
-    line-height: 1.7;
-  }
-
-  h2 {
-    color: #1a237e;
-    border-bottom: 3px solid #3949ab;
-    padding-bottom: 0.5rem;
-    margin-top: 2.5rem;
-  }
-
-  .event-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-  }
-
-  .event-card {
-    background: linear-gradient(145deg, #f5f5f5 0%, #ffffff 100%);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #3949ab;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .event-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .event-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .event-card h3 {
-    color: #1a237e;
-    margin: 0.5rem 0;
-    font-size: 1.3rem;
-  }
-
-  .event-card p {
-    color: #444;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-  }
-
-  .skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .skill-tag {
-    background: #e8eaf6;
-    color: #3949ab;
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-  }
-
-  .schedule, .about-xrp {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    margin-top: 2rem;
-  }
-
-  .schedule h2, .about-xrp h2 {
-    margin-top: 0;
-  }
-
-  a {
-    color: #3949ab;
-  }
-
-  .back-link {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid #ddd;
-  }
-
-  .back-link a {
-    color: #666;
-    text-decoration: none;
-  }
-
-  .back-link a:hover {
-    color: #3949ab;
-  }
-
-  @media (max-width: 600px) {
-    .hero h1 {
-      font-size: 1.8rem;
-    }
-    
-    .event-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
