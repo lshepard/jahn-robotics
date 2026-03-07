@@ -3,18 +3,45 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Advanced Robotics" description="Python programming with XRP robots - Spring 2026 class for grades 5-7">
-  <!-- Header -->
-  <section class="relative pt-28 sm:pt-32 pb-16 sm:pb-24 bg-navy">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-block bg-electric/20 text-electric font-semibold text-sm px-4 py-2 rounded-full mb-6">
-        Wednesdays · 3:30–4:30pm
+  <!-- Olympics Banner -->
+  <section class="relative pt-20 sm:pt-24">
+    <div class="relative w-full h-64 sm:h-80 md:h-96 overflow-hidden">
+      <img 
+        src="/images/olympics/banner.jpg" 
+        alt="XRP robots at the Robot Olympics" 
+        class="w-full h-full object-cover object-center"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 text-center">
+        <div class="inline-block bg-yellow-500 text-navy font-bold text-sm px-4 py-2 rounded-full mb-4">
+          🏆 Robot Olympics · Spring 2026
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg">
+          Advanced Robotics
+        </h1>
+        <p class="text-lg sm:text-xl text-white/90 drop-shadow">
+          Wednesdays · 3:30–4:30pm · Grades 5–7
+        </p>
       </div>
-      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4 animate-on-scroll">
-        Advanced Robotics
-      </h1>
-      <p class="text-xl text-white/80 animate-on-scroll">
-        Grades 5th–7th · Spring 2026
+    </div>
+  </section>
+
+  <!-- Olympics CTA -->
+  <section class="bg-navy py-6">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-white/90 mb-4">
+        This semester we're training for the <strong class="text-yellow-400">XRP Robot Olympics</strong> — 
+        a series of Winter Olympics-inspired challenges culminating in our May 6 showcase!
       </p>
+      <a 
+        href="/classes/xrp-olympics" 
+        class="inline-flex items-center gap-2 bg-yellow-500 hover:bg-yellow-400 text-navy font-bold px-6 py-3 rounded-full transition-colors"
+      >
+        View the Olympic Events
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
     </div>
   </section>
 
