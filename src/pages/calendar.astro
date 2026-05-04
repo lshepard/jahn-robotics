@@ -3,37 +3,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const events = [
   {
-    date: 'February 14, 2026',
-    title: 'State Tournament',
-    description: 'at Elgin Community College',
-    badge: 'Competition',
-    link: 'https://drive.google.com/file/d/13wrAElhotMe5H3Ko5yppNJuorI6YFTEi/view',
-    linkText: 'Tournament Info',
-    externalLink: true,
-    teams: [
-      { name: 'Fossilized Chickens', href: '/teams/unearthed/fossilized-chickens/' },
-      { name: 'Indiana Drones', href: '/teams/unearthed/indiana-drones/' }
-    ]
-  },
-  {
-    date: 'February 23, 2026',
-    title: 'Spring Classes Start',
-    description: 'Weekly LEGO robotics classes begin',
-    link: '/classes/',
-    linkText: 'View Classes',
-    badge: 'Classes'
-  },
-  {
-    date: 'May 2026',
-    title: 'Fall Team Signup',
-    description: 'Registration opens for fall competition teams',
-    badge: 'Registration'
+    date: 'May 20, 2026',
+    title: 'Fall Season Info Kickoff',
+    description: 'Join us to learn about FIRST LEGO League for the 2026-27 season. Meet our coaches, see what teams do, and find out how to sign up.',
+    badge: 'Info Session',
+    featured: true
   },
   {
     date: 'August 17-20, 2026',
     title: 'Robotics Summer Camp',
-    description: 'Save these dates for our summer robotics camp',
+    description: 'Four days of hands-on robotics fun for kids',
     badge: 'Camp'
+  },
+  {
+    date: 'September 2026',
+    title: 'Fall Teams Begin',
+    description: 'Competition teams start meeting weekly',
+    badge: 'Teams'
   }
 ];
 ---
@@ -56,40 +42,27 @@ const events = [
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="space-y-6">
         {events.map((event, index) => (
-          <div class={`bg-white rounded-2xl p-6 sm:p-8 shadow-lg animate-on-scroll stagger-${(index % 4) + 1}`}>
+          <div class={`rounded-2xl p-6 sm:p-8 shadow-lg animate-on-scroll stagger-${(index % 4) + 1} ${event.featured ? 'bg-electric text-white ring-4 ring-electric/30' : 'bg-white'}`}>
             <div class="flex flex-col sm:flex-row sm:items-start gap-4">
               <div class="flex-1">
-                <span class="inline-block bg-electric/10 text-electric font-semibold text-sm px-3 py-1 rounded-full mb-3">
+                <span class={`inline-block font-semibold text-sm px-3 py-1 rounded-full mb-3 ${event.featured ? 'bg-white/20 text-white' : 'bg-electric/10 text-electric'}`}>
                   {event.badge}
                 </span>
-                <p class="text-electric font-semibold text-lg mb-1">
+                <p class={`font-semibold text-lg mb-1 ${event.featured ? 'text-white/90' : 'text-electric'}`}>
                   {event.date}
                 </p>
-                <h2 class="text-2xl font-bold text-navy mb-2">
+                <h2 class={`text-2xl font-bold mb-2 ${event.featured ? 'text-white' : 'text-navy'}`}>
                   {event.title}
                 </h2>
-                <p class="text-gray-600">
+                <p class={event.featured ? 'text-white/90' : 'text-gray-600'}>
                   {event.description}
                 </p>
-                {event.teams && (
-                  <p class="mt-3 text-gray-600">
-                    Two of our teams are advancing: {' '}
-                    {event.teams.map((team, i) => (
-                      <>
-                        <a href={team.href} class="text-electric font-semibold hover:text-electric-dark transition-colors">
-                          {team.name}
-                        </a>
-                        {i < event.teams.length - 1 && ' and '}
-                      </>
-                    ))}
-                  </p>
-                )}
                 {event.link && (
                   <a
                     href={event.link}
                     target={event.externalLink ? '_blank' : undefined}
                     rel={event.externalLink ? 'noopener noreferrer' : undefined}
-                    class="inline-flex items-center mt-4 text-electric font-semibold hover:text-electric-dark transition-colors"
+                    class={`inline-flex items-center mt-4 font-semibold transition-colors ${event.featured ? 'text-white hover:text-white/80' : 'text-electric hover:text-electric-dark'}`}
                   >
                     {event.linkText}
                     {event.externalLink ? (
