@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SeasonSection from '../../components/teams/SeasonSection.astro';
 import { getCollection } from 'astro:content';
 
+const signupUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSc_QRV6zuepd_8dFaJoLw1aRE797RwnTEhibXRxL0-lRaA4Tw/viewform';
+
 const allTeams = await getCollection('teams');
 const allSeasons = await getCollection('seasons');
 
@@ -39,6 +41,7 @@ const teamsBySeason = sortedSeasons.map(season => ({
       seasonBackground={season.background}
       teams={season.teams}
       isCurrent={i === 0}
+      signupUrl={season.slug === 'bioglow' ? signupUrl : undefined}
     />
   ))}
 </BaseLayout>

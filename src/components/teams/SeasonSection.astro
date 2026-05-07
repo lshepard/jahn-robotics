@@ -26,9 +26,10 @@ interface Props {
   seasonBackground?: string;
   teams: TeamData[];
   isCurrent?: boolean;
+  signupUrl?: string;
 }
 
-const { seasonName, seasonSlug, seasonYear, fllTheme, seasonLogo, seasonBackground, teams, isCurrent = false } = Astro.props;
+const { seasonName, seasonSlug, seasonYear, fllTheme, seasonLogo, seasonBackground, teams, isCurrent = false, signupUrl } = Astro.props;
 
 function darken(hex: string, amount: number): string {
   const num = parseInt(hex.replace('#', ''), 16);
@@ -68,73 +69,92 @@ function darken(hex: string, amount: number): string {
           <h2 class="text-2xl sm:text-3xl font-bold text-white drop-shadow-md">{seasonName}</h2>
         </div>
         <p class="text-white/80 drop-shadow-sm">
-          {seasonYear} &middot; {fllTheme} &middot; {teams.length} {teams.length === 1 ? 'team' : 'teams'}
+          {seasonYear} &middot; {fllTheme}{teams.length > 0 && ` · ${teams.length} ${teams.length === 1 ? 'team' : 'teams'}`}
         </p>
       </div>
     </div>
 
-    <!-- Team cards grid -->
-    <div class:list={[
-      'grid gap-8',
-      teams.length === 1 ? 'grid-cols-1 max-w-xs' :
-      teams.length === 2 ? 'grid-cols-1 sm:grid-cols-2 max-w-2xl' :
-      'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
-    ]}>
-      {teams.map((team, i) => (
-        <div class={`relative pt-5 animate-on-scroll stagger-${i + 1}`}>
-          {/* Trophies for award winners */}
-          {team.data.awards && team.data.awards.length > 0 && (
-            <div class="absolute -top-2 right-4 z-20 flex flex-row gap-2">
-              {team.data.awards.map((award) => (
-                <div class="flex flex-col items-center w-16">
-                  <img src="/images/fll/trophy.png" alt="Trophy" class="w-10 h-auto drop-shadow-lg" />
-                  <span class="text-[9px] font-bold text-orange bg-white/90 backdrop-blur-sm rounded px-1.5 py-0.5 mt-1 shadow-sm text-center leading-tight">
-                    {award.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
-          <a
-            href={`/teams/${team.data.season}/${team.data.slug}/`}
-            class="group card-hover block rounded-2xl overflow-hidden border-2 relative"
-            style={`border-color: ${team.data.color}80;`}
-          >
-            {/* Logo as full card background */}
-            <div class="relative aspect-[4/3] bg-white flex items-center justify-center overflow-hidden">
-              {team.data.logo ? (
-                <img
-                  src={team.data.logo}
-                  alt={`${team.data.name} logo`}
-                  class="w-3/4 h-3/4 object-contain opacity-90 group-hover:scale-105 transition-transform duration-300"
-                />
-              ) : (
-                <div
-                  class="w-20 h-20 rounded-full opacity-20"
-                  style={`background: ${team.data.color};`}
-                ></div>
-              )}
-            </div>
-            {/* Team name bar */}
-            <div
-              class="px-4 py-3"
-              style={`background: linear-gradient(135deg, ${team.data.color}, ${darken(team.data.color, 30)});`}
+    {/* Signup link for upcoming seasons with no teams yet */}
+    {teams.length === 0 && signupUrl && (
+      <div class="animate-on-scroll">
+        <a
+          href={signupUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all hover:scale-105 shadow-lg shadow-orange/25"
+        >
+          Sign Up Now
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    )}
+
+    {/* Team cards grid */}
+    {teams.length > 0 && (
+      <div class:list={[
+        'grid gap-8',
+        teams.length === 1 ? 'grid-cols-1 max-w-xs' :
+        teams.length === 2 ? 'grid-cols-1 sm:grid-cols-2 max-w-2xl' :
+        'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
+      ]}>
+        {teams.map((team, i) => (
+          <div class={`relative pt-5 animate-on-scroll stagger-${i + 1}`}>
+            {/* Trophies for award winners */}
+            {team.data.awards && team.data.awards.length > 0 && (
+              <div class="absolute -top-2 right-4 z-20 flex flex-row gap-2">
+                {team.data.awards.map((award) => (
+                  <div class="flex flex-col items-center w-16">
+                    <img src="/images/fll/trophy.png" alt="Trophy" class="w-10 h-auto drop-shadow-lg" />
+                    <span class="text-[9px] font-bold text-orange bg-white/90 backdrop-blur-sm rounded px-1.5 py-0.5 mt-1 shadow-sm text-center leading-tight">
+                      {award.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+            <a
+              href={`/teams/${team.data.season}/${team.data.slug}/`}
+              class="group card-hover block rounded-2xl overflow-hidden border-2 relative"
+              style={`border-color: ${team.data.color}80;`}
             >
-              <h3 class="text-white font-bold text-center text-sm sm:text-base drop-shadow-sm group-hover:tracking-wide transition-all">
-                {team.data.name}
-              </h3>
-            </div>
-          </a>
-          {/* Advancement badge */}
-          {team.data.advancement && (
-            <div class="flex justify-center mt-2">
-              <span class={`text-xs font-semibold px-3 py-1 rounded-full ${team.data.advancement === 'State' ? 'bg-electric text-white' : 'bg-gray-200 text-gray-700'}`}>
-                Advanced to {team.data.advancement}
-              </span>
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
+              {/* Logo as full card background */}
+              <div class="relative aspect-[4/3] bg-white flex items-center justify-center overflow-hidden">
+                {team.data.logo ? (
+                  <img
+                    src={team.data.logo}
+                    alt={`${team.data.name} logo`}
+                    class="w-3/4 h-3/4 object-contain opacity-90 group-hover:scale-105 transition-transform duration-300"
+                  />
+                ) : (
+                  <div
+                    class="w-20 h-20 rounded-full opacity-20"
+                    style={`background: ${team.data.color};`}
+                  ></div>
+                )}
+              </div>
+              {/* Team name bar */}
+              <div
+                class="px-4 py-3"
+                style={`background: linear-gradient(135deg, ${team.data.color}, ${darken(team.data.color, 30)});`}
+              >
+                <h3 class="text-white font-bold text-center text-sm sm:text-base drop-shadow-sm group-hover:tracking-wide transition-all">
+                  {team.data.name}
+                </h3>
+              </div>
+            </a>
+            {/* Advancement badge */}
+            {team.data.advancement && (
+              <div class="flex justify-center mt-2">
+                <span class={`text-xs font-semibold px-3 py-1 rounded-full ${team.data.advancement === 'State' ? 'bg-electric text-white' : 'bg-gray-200 text-gray-700'}`}>
+                  Advanced to {team.data.advancement}
+                </span>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    )}
   </div>
 </section>
