@@ -1,0 +1,231 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Official FIRST season materials live at:
+// https://www.firstinspires.org/resources/library/fll/season-materials
+const seasonMaterials = 'https://www.firstinspires.org/resources/library/fll/season-materials';
+const blob = 'https://firstinspires.blob.core.windows.net/fll/challenge/2026-27';
+
+// English ("enus") mission model building instructions.
+//
+// FIRST publishes 13 numbered books but the Robot Game Rulebook lists 15
+// missions, so the mapping is not 1:1. `book` is the FIRST book number whose
+// cover carries this mission's bag(s); `note` explains the two exceptions:
+//   - Mission 7 shares bag 10 with Mission 6, so both live in book 6.
+//   - Mission 13's bag 20 has no instructions on purpose — the rulebook has
+//     teams design their own keystone species from those bricks.
+const missions = [
+  { number: 1,  name: 'Drone Survey',            bags: '1, 2',              book: 1 },
+  { number: 2,  name: 'Exploding Seeds',         bags: '3',                 book: 2 },
+  { number: 3,  name: 'Flip the Rock',           bags: '4, 5',              book: 3 },
+  { number: 4,  name: 'Lucky Leaves',            bags: '6',                 book: 4 },
+  { number: 5,  name: 'Reaching Roots',          bags: '7',                 book: 5 },
+  { number: 6,  name: 'Leafcutter Frenzy',       bags: '8, 9, 10',          book: 6 },
+  { number: 7,  name: 'Humongous Fungus',        bags: '10',                book: 6,
+    note: 'Shares bag 10 with Mission 6 — built in the same book.' },
+  { number: 8,  name: 'Tangled',                 bags: '11, 12, 13, 14, 15', book: 7 },
+  { number: 9,  name: 'Research Platform',       bags: '11, 12, 13, 14, 15', book: 7,
+    note: 'Shares bags 11–15 with Mission 8 — built in the same book.' },
+  { number: 10, name: 'Fragile Microhabitats',   bags: '16',                book: 8 },
+  { number: 11, name: 'Window to the Past',      bags: '17',                book: 9 },
+  { number: 12, name: 'Forest Elder',            bags: '18',                book: 10 },
+  { number: 13, name: 'Keystone Species',        bags: '19, 20',            book: 11,
+    note: 'Book 11 covers bag 19. Bag 20 has no instructions — your team designs its own keystone species from those bricks.' },
+  { number: 14, name: 'Seeds of Renewal',        bags: '21',                book: 12 },
+  { number: 15, name: 'Biocentric Architecture', bags: '22, 23, 24',        book: 13 },
+];
+
+const bookUrl = (n: number) =>
+  `${blob}/fll-challenge-bioglow-bi-enus-book-${String(n).padStart(2, '0')}.pdf`;
+
+const overviews = [
+  {
+    name: 'Prepack Overview',
+    href: `${blob}/fll-challenge-bioglow-bi-enus-prepack.pdf`,
+    desc: 'Which elements come in which numbered bag — useful when sorting before a build session.',
+  },
+];
+---
+
+<BaseLayout
+  title="BIOGLOW Build Instructions"
+  description="English mission model building instructions for the FIRST LEGO League BIOGLOW 2026-27 season, with bag numbers for each mission"
+>
+  <!-- Hero -->
+  <section class="relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/images/fll/bioglow-background.png');"
+    ></div>
+    <div class="absolute inset-0 bg-navy/80"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block bg-green/20 text-green font-semibold text-sm px-4 py-1 rounded-full mb-4">
+        2026-27 Season
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6 animate-on-scroll">
+        Mission Model Build Instructions
+      </h1>
+      <p class="text-white/80 text-lg max-w-2xl mx-auto animate-on-scroll">
+        Every English building instruction PDF, matched to its mission and bag numbers.
+      </p>
+      <a
+        href="/bioglow#resources"
+        class="inline-block mt-8 text-electric font-semibold text-sm hover:text-white transition-colors animate-on-scroll"
+      >
+        &larr; Back to BIOGLOW Season Resources
+      </a>
+    </div>
+  </section>
+
+  <div class="bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 space-y-16 sm:space-y-20">
+
+      <!-- MISSION TABLE -->
+      <section id="missions" class="scroll-mt-40">
+        <h2 class="text-3xl font-bold text-navy mb-3 animate-on-scroll">Missions &amp; Bags</h2>
+        <p class="text-gray-600 mb-8 max-w-3xl animate-on-scroll">
+          Sort the LEGO bags from the Challenge Set by their printed number, then open the matching
+          PDF. Open one set of bags at a time so the elements don&rsquo;t get mixed up. Build the
+          models exactly as shown &mdash; practicing with an incorrectly built model will hurt your
+          gameplay.
+        </p>
+
+        <!-- Desktop / tablet table -->
+        <div class="hidden sm:block bg-white rounded-2xl shadow-lg overflow-hidden animate-on-scroll">
+          <table class="w-full text-left border-collapse">
+            <caption class="sr-only">
+              BIOGLOW missions with their bag numbers and English building instruction PDFs
+            </caption>
+            <thead>
+              <tr class="bg-navy text-white">
+                <th scope="col" class="px-4 py-4 font-semibold text-sm text-center w-20">Mission</th>
+                <th scope="col" class="px-4 py-4 font-semibold text-sm">Mission Name</th>
+                <th scope="col" class="px-4 py-4 font-semibold text-sm w-44">Bag Number(s)</th>
+                <th scope="col" class="px-4 py-4 font-semibold text-sm w-56">Instructions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {missions.map((m, i) => (
+                <tr class={i % 2 === 1 ? 'bg-gray-50/70' : ''}>
+                  <td class="px-4 py-4 text-center align-top border-t border-gray-100">
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green/15 text-navy font-bold text-sm">
+                      {m.number}
+                    </span>
+                  </td>
+                  <td class="px-4 py-4 align-top border-t border-gray-100">
+                    <span class="font-semibold text-navy">{m.name}</span>
+                    {m.note && (
+                      <span class="block text-xs text-gray-500 mt-1 max-w-md">{m.note}</span>
+                    )}
+                  </td>
+                  <td class="px-4 py-4 align-top border-t border-gray-100">
+                    <span class="font-mono text-sm text-gray-700">{m.bags}</span>
+                  </td>
+                  <td class="px-4 py-4 align-top border-t border-gray-100">
+                    <a
+                      href={bookUrl(m.book)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1.5 font-semibold text-electric hover:text-navy transition-colors"
+                    >
+                      Book {m.book} (PDF)
+                      <span aria-hidden="true">&rarr;</span>
+                      <span class="sr-only">
+                        , English building instructions for Mission {m.number}: {m.name}
+                      </span>
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile cards -->
+        <div class="sm:hidden space-y-3">
+          {missions.map((m) => (
+            <a
+              href={bookUrl(m.book)}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block bg-white rounded-xl p-4 shadow-md active:scale-[0.99] transition-transform"
+            >
+              <div class="flex items-start gap-3">
+                <span class="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full bg-green/15 text-navy font-bold text-sm">
+                  {m.number}
+                </span>
+                <div class="min-w-0">
+                  <h3 class="font-bold text-navy leading-snug">{m.name}</h3>
+                  <p class="text-sm text-gray-600 mt-0.5">
+                    Bag{m.bags.includes(',') ? 's' : ''} <span class="font-mono">{m.bags}</span>
+                  </p>
+                  {m.note && <p class="text-xs text-gray-500 mt-1">{m.note}</p>}
+                  <span class="inline-block mt-2 text-electric font-semibold text-sm">
+                    Book {m.book} (PDF) &rarr;
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <p class="text-sm text-gray-500 mt-6 max-w-3xl animate-on-scroll">
+          FIRST publishes 13 numbered instruction books for 15 missions, because some missions share
+          a bag. Non-verbal, French, and text-based versions of every book are available on the
+          <a href={seasonMaterials} target="_blank" rel="noopener noreferrer" class="text-electric font-medium hover:underline">FIRST season materials page</a>.
+        </p>
+      </section>
+
+      <!-- OVERVIEWS -->
+      <section id="overviews" class="scroll-mt-40">
+        <h2 class="text-3xl font-bold text-navy mb-3 animate-on-scroll">Sorting &amp; Setup</h2>
+        <p class="text-gray-600 mb-8 max-w-2xl animate-on-scroll">
+          Helpful before the first build session &mdash; and when a piece goes missing.
+        </p>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {overviews.map((o, i) => (
+            <a
+              href={o.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 animate-on-scroll${i > 0 ? ` stagger-${i + 1}` : ''}`}
+            >
+              <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">PDF</span>
+              <h3 class="font-bold text-navy text-lg mt-1 mb-2 group-hover:text-electric transition-colors">
+                {o.name}
+              </h3>
+              <p class="text-gray-600 text-sm">{o.desc}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- MISSING PARTS -->
+      <section id="missing-parts" class="scroll-mt-40">
+        <div class="bg-navy rounded-2xl p-6 sm:p-8 shadow-lg animate-on-scroll">
+          <h2 class="text-2xl font-bold text-white mb-2">Missing LEGO elements?</h2>
+          <p class="text-white/70 text-sm mb-4 max-w-2xl">
+            Identify the element in your building instructions, then request a replacement from
+            LEGO. Mention <span class="font-semibold text-white">FIRST</span> LEGO League when you
+            call.
+          </p>
+          <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+            <a
+              href="https://www.lego.com/en-us/service/replacementparts"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-electric font-semibold text-sm hover:text-white transition-colors"
+            >
+              LEGO replacement parts &rarr;
+            </a>
+            <span class="text-white/60 text-sm">
+              US / Canada: <a href="tel:+18887390140" class="text-white/90 hover:text-white">1-888-739-0140</a>
+            </span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>
