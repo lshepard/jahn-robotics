@@ -6,25 +6,77 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // one sentence so the cards stay scannable.
 
 const sections = [
-  { id: 'design-guide', label: 'Robot Design Guide' },
-  { id: 'designs', label: 'Robot Designs' },
+  { id: 'techniques', label: 'Techniques' },
+  { id: 'showcases', label: 'Team Showcases' },
+  { id: 'designs', label: 'Design Libraries' },
 ];
 
-// Watch-first material: the guide videos that teach design principles.
-const videos = [
+// TECHNIQUES — transferable ideas that work in any season. A funnel or a
+// one-way door is still a funnel or a one-way door next year.
+const techniques = [
   {
     title: 'Master FIRST LEGO League: Top Robot Design Strategies!',
     channel: 'Next Level Teacher',
     href: 'https://www.youtube.com/watch?v=PCMEvf4p2PI',
     embed: 'https://www.youtube-nocookie.com/embed/PCMEvf4p2PI',
-    desc: 'Start here. What makes a competition robot fast, accurate, and repeatable — chassis, attachments, and the design tradeoffs behind them.',
+    topic: 'Start here',
+    desc: 'What makes a competition robot fast, accurate, and repeatable — chassis, attachments, and the design tradeoffs behind them.',
+  },
+  {
+    title: 'How to build Funnels for FLL',
+    channel: 'BrickWise',
+    href: 'https://www.youtube.com/watch?v=lm2Mu_mw4HE',
+    embed: 'https://www.youtube-nocookie.com/embed/lm2Mu_mw4HE',
+    topic: 'Funnels',
+    desc: 'Funnels guide a mission model into place even when the robot arrives slightly off — the single biggest win for consistency.',
+  },
+  {
+    title: 'AWESOME One-Way Door Designs for your FLL Robot',
+    channel: 'RoboticsRulesCompetition',
+    href: 'https://www.youtube.com/watch?v=V96TLTVYCX4',
+    embed: 'https://www.youtube-nocookie.com/embed/V96TLTVYCX4',
+    topic: 'One-way doors',
+    desc: 'Passive attachments that let a model in but not back out, so you can collect on the way past without stopping.',
+  },
+  {
+    title: 'FLL Consistency Cheat Code',
+    channel: 'Zachary Trautwein',
+    href: 'https://www.youtube.com/watch?v=TDZoKKqyKsI',
+    embed: 'https://www.youtube-nocookie.com/embed/TDZoKKqyKsI',
+    topic: 'Consistency',
+    desc: 'Why a run that works four times out of five loses to a slower one that works every time, and how to get there.',
   },
   {
     title: 'FLL Robot Building Instructions & Tutorials (Step-by-Step)',
     channel: 'MocKingBrick',
     href: 'https://www.youtube.com/playlist?list=PL2xO_pfiwa7V9Llh1cpB632jhcjErJYM6',
     embed: 'https://www.youtube-nocookie.com/embed/videoseries?list=PL2xO_pfiwa7V9Llh1cpB632jhcjErJYM6',
-    desc: 'A full playlist of step-by-step builds you can follow along with, brick by brick.',
+    topic: 'Step-by-step builds',
+    desc: 'A full playlist of builds you can follow along with, brick by brick.',
+    isPlaylist: true,
+  },
+];
+
+// TEAM SHOWCASES — real robots from real teams. These are tied to a specific
+// season's missions, so borrow the mechanism, not the whole robot.
+const showcases = [
+  {
+    title: 'Our World Record Robot (680 points!)',
+    channel: 'Wolfpack & Lupine - Waring Robotics',
+    href: 'https://www.youtube.com/watch?v=9DzS0jlQDBM',
+    embed: 'https://www.youtube-nocookie.com/embed/9DzS0jlQDBM',
+    score: '680 pts',
+    desc: 'A full design walkthrough of a world-record robot — how the team chose attachments and sequenced their runs.',
+  },
+  {
+    title: 'FLL Unearthed Max Point Solutions',
+    channel: 'Team Turtlebots FLL',
+    href: 'https://www.youtube.com/playlist?list=PLkp4hAwlhaSkQt-llTGjLI6XtQNbUAqn5',
+    embed: 'https://www.youtube-nocookie.com/embed/videoseries?list=PLkp4hAwlhaSkQt-llTGjLI6XtQNbUAqn5',
+    score: '545 pts',
+    desc: 'A whole season of mission solutions built around simple passive attachments — start with the 545-point run.',
+    extraHref: 'https://www.youtube.com/watch?v=fMYTP48i3Rs&list=PLkp4hAwlhaSkQt-llTGjLI6XtQNbUAqn5',
+    extraLabel: 'Watch the 545-point run',
     isPlaylist: true,
   },
 ];
@@ -59,6 +111,18 @@ const designLibraries = [
       'https://docs.google.com/document/d/1hpmRyuHHaxoJZiRsXWPkJoB9Kd6JmYJl4ymF-hpu2Q0/edit?tab=t.z68gpggy619t',
     credentialsLabel: 'Team login',
     note: 'Jahn has a team subscription — sign in with the team login to watch.',
+  },
+  {
+    name: 'MiniMAX on BuildIn3D',
+    by: 'buildin3d.com',
+    href: 'https://platform.buildin3d.com/instructions/1223-minimax',
+    desc: 'Interactive 3D build instructions for MiniMAX — a compact competition robot that fits in a single SPIKE Prime set. Rotate and zoom each step.',
+    tag: 'Team subscription',
+    // BuildIn3D is FLLCasts' 3D instruction viewer, so the same team login works.
+    credentialsHref:
+      'https://docs.google.com/document/d/1hpmRyuHHaxoJZiRsXWPkJoB9Kd6JmYJl4ymF-hpu2Q0/edit?tab=t.z68gpggy619t',
+    credentialsLabel: 'Team login',
+    note: 'Preview is free; full steps need the FLLCasts subscription.',
   },
 ];
 ---
@@ -102,18 +166,18 @@ const designLibraries = [
   <div class="bg-gray-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 space-y-16 sm:space-y-20">
 
-      <!-- ROBOT DESIGN GUIDE -->
-      <section id="design-guide" class="scroll-mt-40">
-        <h2 class="text-3xl font-bold text-navy mb-3 animate-on-scroll">Robot Design Guide</h2>
+      <!-- TECHNIQUES -->
+      <section id="techniques" class="scroll-mt-40">
+        <h2 class="text-3xl font-bold text-navy mb-3 animate-on-scroll">Techniques</h2>
         <p class="text-gray-600 mb-8 max-w-2xl animate-on-scroll">
-          Watch these before you start building &mdash; they cover why a design works, not just how
-          to snap it together.
+          General ideas that work in <em>any</em> season &mdash; funnels, one-way doors, and the
+          habits that make a run repeatable. Learn these once and reuse them every year.
         </p>
 
         <div class="grid lg:grid-cols-2 gap-6">
-          {videos.map((v, i) => (
+          {techniques.map((v, i) => (
             <div
-              class={`bg-white rounded-2xl overflow-hidden shadow-lg animate-on-scroll${i > 0 ? ` stagger-${i + 1}` : ''}`}
+              class={`flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg animate-on-scroll${i > 0 ? ` stagger-${Math.min(i + 1, 4)}` : ''}`}
             >
               <div class="aspect-video">
                 <iframe
@@ -126,17 +190,22 @@ const designLibraries = [
                   class="w-full h-full border-0"
                 ></iframe>
               </div>
-              <div class="p-6">
-                <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">
-                  {v.isPlaylist ? 'Playlist' : 'Video'} &middot; {v.channel}
-                </span>
-                <h3 class="font-bold text-navy text-lg mt-1 mb-2">{v.title}</h3>
+              <div class="flex flex-col flex-1 p-6">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-electric/10 text-electric">
+                    {v.topic}
+                  </span>
+                  <span class="text-xs text-gray-400">
+                    {v.isPlaylist ? 'Playlist' : 'Video'} &middot; {v.channel}
+                  </span>
+                </div>
+                <h3 class="font-bold text-navy text-lg mb-2">{v.title}</h3>
                 <p class="text-gray-600 text-sm mb-4">{v.desc}</p>
                 <a
                   href={v.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-electric font-semibold text-sm hover:text-navy transition-colors"
+                  class="mt-auto text-electric font-semibold text-sm hover:text-navy transition-colors"
                 >
                   Watch on YouTube &rarr;
                 </a>
@@ -146,9 +215,71 @@ const designLibraries = [
         </div>
       </section>
 
+      <!-- TEAM SHOWCASES -->
+      <section id="showcases" class="scroll-mt-40">
+        <h2 class="text-3xl font-bold text-navy mb-3 animate-on-scroll">Team Showcases</h2>
+        <p class="text-gray-600 mb-8 max-w-2xl animate-on-scroll">
+          Real robots from real teams, built for a specific season&rsquo;s missions. Watch for
+          <em>how</em> they solved a problem &mdash; borrow the mechanism, then design your own robot
+          around this year&rsquo;s missions.
+        </p>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+          {showcases.map((v, i) => (
+            <div
+              class={`flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg animate-on-scroll${i > 0 ? ` stagger-${i + 1}` : ''}`}
+            >
+              <div class="aspect-video">
+                <iframe
+                  src={v.embed}
+                  title={v.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                  class="w-full h-full border-0"
+                ></iframe>
+              </div>
+              <div class="flex flex-col flex-1 p-6">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-orange/15 text-orange-dark">
+                    {v.score}
+                  </span>
+                  <span class="text-xs text-gray-400">
+                    {v.isPlaylist ? 'Playlist' : 'Video'} &middot; {v.channel}
+                  </span>
+                </div>
+                <h3 class="font-bold text-navy text-lg mb-2">{v.title}</h3>
+                <p class="text-gray-600 text-sm mb-4">{v.desc}</p>
+                <div class="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <a
+                    href={v.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-electric font-semibold text-sm hover:text-navy transition-colors"
+                  >
+                    Watch on YouTube &rarr;
+                  </a>
+                  {v.extraHref && (
+                    <a
+                      href={v.extraHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-gray-500 font-medium text-sm hover:text-navy transition-colors"
+                    >
+                      {v.extraLabel} &rarr;
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <!-- ROBOT DESIGNS -->
       <section id="designs" class="scroll-mt-40">
-        <h2 class="text-3xl font-bold text-navy mb-3 animate-on-scroll">Robot Designs</h2>
+        <h2 class="text-3xl font-bold text-navy mb-3 animate-on-scroll">Design Libraries</h2>
         <p class="text-gray-600 mb-8 max-w-2xl animate-on-scroll">
           Proven base robots and attachments with full build instructions. Pick one as a starting
           point, then modify it for your team&rsquo;s mission strategy.
