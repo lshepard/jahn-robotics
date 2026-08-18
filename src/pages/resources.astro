@@ -52,11 +52,13 @@ const designLibraries = [
     href: 'https://www.fllcasts.com/',
     desc: 'Hundreds of step-by-step robot designs, attachments, and programming courses.',
     tag: 'Team subscription',
-    // Login lives in the team resources doc. Not linked here yet — the doc is
-    // readable by anyone with the link and holds a shared password. Once it is
-    // restricted, swap `credentialsHref` back in and the card links to it.
-    // credentialsHref: 'https://docs.google.com/document/d/1hpmRyuHHaxoJZiRsXWPkJoB9Kd6JmYJl4ymF-hpu2Q0/edit?tab=t.z68gpggy619t',
-    note: 'Jahn has a team subscription — ask a coach for the login.',
+    // The team login lives in an access-restricted Google Doc — students need
+    // to be signed in to an approved account to read it. Keep that doc
+    // restricted; it holds a shared password in plain text.
+    credentialsHref:
+      'https://docs.google.com/document/d/1hpmRyuHHaxoJZiRsXWPkJoB9Kd6JmYJl4ymF-hpu2Q0/edit?tab=t.z68gpggy619t',
+    credentialsLabel: 'Team login',
+    note: 'Jahn has a team subscription — sign in with the team login to watch.',
   },
 ];
 ---
@@ -173,14 +175,29 @@ const designLibraries = [
               </div>
               <p class="text-gray-600 text-sm mb-3">{d.desc}</p>
               {d.note && <p class="text-xs text-gray-500 mb-4">{d.note}</p>}
-              <a
-                href={d.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-auto text-electric font-semibold text-sm hover:text-navy transition-colors"
-              >
-                Browse designs &rarr;
-              </a>
+              <div class="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2">
+                <a
+                  href={d.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-electric font-semibold text-sm hover:text-navy transition-colors"
+                >
+                  Browse designs &rarr;
+                </a>
+                {d.credentialsHref && (
+                  <a
+                    href={d.credentialsHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 text-gray-500 font-medium text-sm hover:text-navy transition-colors"
+                  >
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    {d.credentialsLabel}
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
