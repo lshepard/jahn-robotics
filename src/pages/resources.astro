@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Coding & robot design resources. This page grows over time — add new links to
+// the arrays below and they render automatically. Keep each entry's `desc` to
+// one sentence so the cards stay scannable.
+
+const sections = [
+  { id: 'design-guide', label: 'Robot Design Guide' },
+  { id: 'designs', label: 'Robot Designs' },
+];
+
+// Watch-first material: the guide videos that teach design principles.
+const videos = [
+  {
+    title: 'Master FIRST LEGO League: Top Robot Design Strategies!',
+    channel: 'Next Level Teacher',
+    href: 'https://www.youtube.com/watch?v=PCMEvf4p2PI',
+    embed: 'https://www.youtube-nocookie.com/embed/PCMEvf4p2PI',
+    desc: 'Start here. What makes a competition robot fast, accurate, and repeatable — chassis, attachments, and the design tradeoffs behind them.',
+  },
+  {
+    title: 'FLL Robot Building Instructions & Tutorials (Step-by-Step)',
+    channel: 'MocKingBrick',
+    href: 'https://www.youtube.com/playlist?list=PL2xO_pfiwa7V9Llh1cpB632jhcjErJYM6',
+    embed: 'https://www.youtube-nocookie.com/embed/videoseries?list=PL2xO_pfiwa7V9Llh1cpB632jhcjErJYM6',
+    desc: 'A full playlist of step-by-step builds you can follow along with, brick by brick.',
+    isPlaylist: true,
+  },
+];
+
+// Places to find a base robot or attachment to build from.
+const designLibraries = [
+  {
+    name: 'PrimeLessons',
+    by: 'Droids Robotics',
+    href: 'https://primelessons.org/en/RobotDesigns.html',
+    desc: 'Build instructions and code for training robots — Coop Bot, the Droid Bot family, and modular bases for SPIKE Prime.',
+    tag: 'Free',
+    note: 'Creative Commons — cite the source if you use a design in competition.',
+  },
+  {
+    name: 'FLLTutorials',
+    by: 'FLLTutorials.com',
+    href: 'https://flltutorials.com/en/RobotGame.html',
+    desc: 'Ten base robot designs plus 20+ lessons on navigation, line following, gyro turns, gearing, and mission strategy.',
+    tag: 'Free',
+  },
+  {
+    name: 'FLLCasts',
+    by: 'fllcasts.com',
+    href: 'https://www.fllcasts.com/',
+    desc: 'Hundreds of step-by-step robot designs, attachments, and programming courses.',
+    tag: 'Team subscription',
+    // Login lives in the team resources doc. Not linked here yet — the doc is
+    // readable by anyone with the link and holds a shared password. Once it is
+    // restricted, swap `credentialsHref` back in and the card links to it.
+    // credentialsHref: 'https://docs.google.com/document/d/1hpmRyuHHaxoJZiRsXWPkJoB9Kd6JmYJl4ymF-hpu2Q0/edit?tab=t.z68gpggy619t',
+    note: 'Jahn has a team subscription — ask a coach for the login.',
+  },
+];
+---
+
+<BaseLayout
+  title="Coding & Robot Resources"
+  description="Robot design guides, build instructions, and coding tutorials for Jahn Robotics teams"
+>
+  <!-- Hero -->
+  <section class="relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden bg-navy">
+    <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block bg-electric/20 text-electric font-semibold text-sm px-4 py-1 rounded-full mb-4">
+        For Teams
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6 animate-on-scroll">
+        Coding &amp; Robot Resources
+      </h1>
+      <p class="text-white/80 text-lg max-w-2xl mx-auto animate-on-scroll">
+        Where to learn robot design, and where to find a build to start from.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sticky section nav -->
+  <nav class="sticky top-16 sm:top-20 z-30 bg-navy-light/95 backdrop-blur-md border-y border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-1 overflow-x-auto py-2 -mx-1 px-1">
+        {sections.map((s) => (
+          <a
+            href={`#${s.id}`}
+            class="whitespace-nowrap px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+          >
+            {s.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 space-y-16 sm:space-y-20">
+
+      <!-- ROBOT DESIGN GUIDE -->
+      <section id="design-guide" class="scroll-mt-40">
+        <h2 class="text-3xl font-bold text-navy mb-3 animate-on-scroll">Robot Design Guide</h2>
+        <p class="text-gray-600 mb-8 max-w-2xl animate-on-scroll">
+          Watch these before you start building &mdash; they cover why a design works, not just how
+          to snap it together.
+        </p>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+          {videos.map((v, i) => (
+            <div
+              class={`bg-white rounded-2xl overflow-hidden shadow-lg animate-on-scroll${i > 0 ? ` stagger-${i + 1}` : ''}`}
+            >
+              <div class="aspect-video">
+                <iframe
+                  src={v.embed}
+                  title={v.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                  class="w-full h-full border-0"
+                ></iframe>
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-semibold uppercase tracking-wide text-gray-400">
+                  {v.isPlaylist ? 'Playlist' : 'Video'} &middot; {v.channel}
+                </span>
+                <h3 class="font-bold text-navy text-lg mt-1 mb-2">{v.title}</h3>
+                <p class="text-gray-600 text-sm mb-4">{v.desc}</p>
+                <a
+                  href={v.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-electric font-semibold text-sm hover:text-navy transition-colors"
+                >
+                  Watch on YouTube &rarr;
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- ROBOT DESIGNS -->
+      <section id="designs" class="scroll-mt-40">
+        <h2 class="text-3xl font-bold text-navy mb-3 animate-on-scroll">Robot Designs</h2>
+        <p class="text-gray-600 mb-8 max-w-2xl animate-on-scroll">
+          Proven base robots and attachments with full build instructions. Pick one as a starting
+          point, then modify it for your team&rsquo;s mission strategy.
+        </p>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {designLibraries.map((d, i) => (
+            <div
+              class={`flex flex-col bg-white rounded-2xl p-6 shadow-lg animate-on-scroll${i > 0 ? ` stagger-${i + 1}` : ''}`}
+            >
+              <div class="flex items-start justify-between gap-3 mb-2">
+                <div>
+                  <h3 class="font-bold text-navy text-lg">{d.name}</h3>
+                  <span class="text-xs text-gray-400">{d.by}</span>
+                </div>
+                <span
+                  class:list={[
+                    'shrink-0 text-xs font-semibold px-2.5 py-1 rounded-full',
+                    d.tag === 'Free' ? 'bg-green/15 text-navy' : 'bg-orange/15 text-orange-dark',
+                  ]}
+                >
+                  {d.tag}
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm mb-3">{d.desc}</p>
+              {d.note && <p class="text-xs text-gray-500 mb-4">{d.note}</p>}
+              <a
+                href={d.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-auto text-electric font-semibold text-sm hover:text-navy transition-colors"
+              >
+                Browse designs &rarr;
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>
