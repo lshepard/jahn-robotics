@@ -4,7 +4,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Official FIRST season materials live at:
 // https://www.firstinspires.org/resources/library/fll/season-materials
 const seasonMaterials = 'https://www.firstinspires.org/resources/library/fll/season-materials';
-const blob = 'https://firstinspires.blob.core.windows.net/fll/challenge/2026-27';
+// Building instruction PDFs are mirrored locally in
+// public/resources/bioglow/build-instructions/ so the site keeps working if
+// FIRST moves or removes the originals.
+const docs = '/resources/bioglow/build-instructions';
 
 // English ("enus") mission model building instructions.
 //
@@ -36,12 +39,12 @@ const missions = [
 ];
 
 const bookUrl = (n: number) =>
-  `${blob}/fll-challenge-bioglow-bi-enus-book-${String(n).padStart(2, '0')}.pdf`;
+  `${docs}/fll-challenge-bioglow-bi-enus-book-${String(n).padStart(2, '0')}.pdf`;
 
 const overviews = [
   {
     name: 'Prepack Overview',
-    href: `${blob}/fll-challenge-bioglow-bi-enus-prepack.pdf`,
+    href: `${docs}/fll-challenge-bioglow-bi-enus-prepack.pdf`,
     desc: 'Which elements come in which numbered bag — useful when sorting before a build session.',
   },
 ];

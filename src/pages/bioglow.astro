@@ -4,7 +4,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Official FIRST season materials live at:
 // https://www.firstinspires.org/resources/library/fll/season-materials
 const seasonMaterials = 'https://www.firstinspires.org/resources/library/fll/season-materials';
-const blob = 'https://firstinspires.blob.core.windows.net/fll/challenge/2026-27';
+// Season PDFs are mirrored locally in public/resources/bioglow/ so the site
+// keeps working if FIRST moves or removes the originals.
+const docs = '/resources/bioglow';
 
 const sections = [
   { id: 'rules', label: 'Rules & Missions' },
@@ -78,7 +80,7 @@ const sections = [
 
         <div class="grid sm:grid-cols-2 gap-6">
           <a
-            href={`${blob}/fll-challenge-bioglow-rgr.pdf`}
+            href={`${docs}/fll-challenge-bioglow-rgr.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 animate-on-scroll"
@@ -100,7 +102,7 @@ const sections = [
           </a>
 
           <a
-            href={`${blob}/fll-challenge-bioglow-field-setup-reference-guide.pdf`}
+            href={`${docs}/fll-challenge-bioglow-field-setup-reference-guide.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 animate-on-scroll stagger-2"
@@ -132,7 +134,7 @@ const sections = [
 
         <div class="grid sm:grid-cols-2 gap-6">
           <a
-            href={`${blob}/fll-challenge-bioglow-software-scoresheet.pdf`}
+            href={`${docs}/fll-challenge-bioglow-software-scoresheet.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 animate-on-scroll"
