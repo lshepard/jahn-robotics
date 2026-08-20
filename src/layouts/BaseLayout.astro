@@ -43,27 +43,5 @@ const fullTitle = title === 'Home' ? 'Jahn Robotics' : `${title} | Jahn Robotics
       <slot />
     </main>
     <Footer />
-    <script>
-      // Scroll animation observer
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-            }
-          });
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-      );
-
-      function initAnimations() {
-        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-          observer.observe(el);
-        });
-      }
-
-      initAnimations();
-      document.addEventListener('astro:after-swap', initAnimations);
-    </script>
   </body>
 </html>

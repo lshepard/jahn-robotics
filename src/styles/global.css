@@ -45,22 +45,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ===== Scroll Animations ===== */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.animate-on-scroll.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Stagger delays for child elements */
-.stagger-1 { transition-delay: 0.1s; }
-.stagger-2 { transition-delay: 0.2s; }
-.stagger-3 { transition-delay: 0.3s; }
-.stagger-4 { transition-delay: 0.4s; }
+/* Removed — content renders immediately on load. The .animate-on-scroll and
+   .stagger-* classes are still present in the markup but are intentionally
+   no-ops, so nothing is hidden if a class lingers or gets copied. */
 
 /* ===== Counter Animation ===== */
 @keyframes count-up {
