@@ -9,12 +9,8 @@ const sections = [
   { id: 'techniques', label: 'Techniques' },
   { id: 'showcases', label: 'Team Showcases' },
   { id: 'designs', label: 'Design Libraries' },
-  { id: 'ask-ai', label: 'Ask AI' },
 ];
 
-// Our Playlab assistant, scoped to Pybricks robot coding. Swap the id here if
-// we publish a new version of the app.
-const playlabEmbed = 'https://www.playlab.ai/embedded/cmsynht9i652bl20wk2qtjxm4';
 
 // TECHNIQUES — transferable ideas that work in any season. A funnel or a
 // one-way door is still a funnel or a one-way door next year.
@@ -339,23 +335,6 @@ const designLibraries = [
         </div>
       </section>
 
-      <!-- ASK AI -->
-      <section id="ask-ai" class="scroll-mt-40">
-        <h2 class="text-3xl font-bold text-navy mb-3 animate-on-scroll">Ask AI</h2>
-        <p class="text-gray-600 mb-8 max-w-2xl animate-on-scroll">
-          Stuck on your Pybricks code? Ask our coding helper.
-        </p>
-
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden animate-on-scroll">
-          <iframe
-            src={playlabEmbed}
-            title="Pybricks Robot Coding Helper"
-            height="700"
-            allow="clipboard-write"
-            class="w-full border-0 block"
-          ></iframe>
-        </div>
-      </section>
 
     </div>
   </div>

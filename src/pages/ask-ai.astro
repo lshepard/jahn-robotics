@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Our Playlab assistant, scoped to Pybricks robot coding. Swap the id here if
+// we publish a new version of the app.
+const playlabEmbed = 'https://www.playlab.ai/embedded/cmsynht9i652bl20wk2qtjxm4';
+---
+
+<BaseLayout
+  title="Ask AI"
+  description="A Pybricks robot coding assistant for Jahn Robotics teams"
+>
+  <!-- Hero -->
+  <section class="relative pt-28 sm:pt-32 pb-12 sm:pb-16 overflow-hidden bg-navy">
+    <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block bg-electric/20 text-electric font-semibold text-sm px-4 py-1 rounded-full mb-4">
+        For Teams
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6 animate-on-scroll">
+        Ask AI
+      </h1>
+      <p class="text-white/80 text-lg max-w-2xl mx-auto animate-on-scroll">
+        Stuck on your Pybricks code? Ask our coding helper.
+      </p>
+    </div>
+  </section>
+
+  <div class="bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden animate-on-scroll">
+        <iframe
+          src={playlabEmbed}
+          title="Pybricks Robot Coding Helper"
+          height="700"
+          allow="clipboard-write"
+          class="w-full border-0 block"
+        ></iframe>
+      </div>
+
+      <!-- AI use policy -->
+      <div class="mt-8 bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-gray-100 animate-on-scroll">
+        <h2 class="font-bold text-navy text-lg mb-3">Using AI in FIRST LEGO League</h2>
+        <div class="space-y-3 text-sm text-gray-600 max-w-3xl">
+          <p>
+            Use of AI is governed by both <span class="font-semibold text-navy">FIRST</span> and
+            <span class="font-semibold text-navy">CPS</span> policies. FIRST views AI resources as
+            tools available to students. Teams using AI to assist with code or content generation
+            must provide proper credit and attribution.
+          </p>
+          <p>
+            CPS guidance is similar: &ldquo;Students should produce work that is fundamentally their
+            own. Students should clearly identify any AI-generated content that they have used.&rdquo;
+          </p>
+          <p>
+            Proper credit can look like this:
+            <span class="font-medium text-navy">Essay created by Team XXXX and ChatGPT.</span>
+          </p>
+          <p>
+            The AI chatbot on this page is provided by
+            <a href="https://www.playlab.ai/" target="_blank" rel="noopener noreferrer" class="text-electric font-medium hover:underline">Playlab.AI</a>,
+            a nonprofit and official vendor for Chicago Public Schools.
+          </p>
+        </div>
+
+        <div class="mt-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 border-t border-gray-100 pt-5">
+          <a
+            href="https://community.firstinspires.org/expanding-the-first-toolbox-with-artificial-intelligence"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-electric font-semibold text-sm hover:text-navy transition-colors"
+          >
+            FIRST AI policy &rarr;
+          </a>
+          <a
+            href="https://www.cps.edu/sites/ai-at-cps/all-guidance/students/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-electric font-semibold text-sm hover:text-navy transition-colors"
+          >
+            CPS student AI guidance &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
