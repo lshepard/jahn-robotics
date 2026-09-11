@@ -23,6 +23,7 @@ coaches:
 members:
   - name: "Team Member"
     reflection: ""
+nextTeam: "bioglow/biobeez"
 ---
 
 ## Our Season

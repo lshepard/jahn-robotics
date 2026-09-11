@@ -7,7 +7,7 @@ import { getAwardDescription } from '../lib/awards';
 
 interface Props {
   name: string;
-  number: number;
+  number?: number;
   slug: string;
   season: string;
   seasonYear: string;
@@ -18,7 +18,7 @@ interface Props {
   photo?: string;
   coaches: string[];
   members?: { name: string; reflection?: string }[];
-  previousTeam?: string;
+  previousTeam?: string | string[];
   nextTeam?: string;
 }
 
@@ -38,13 +38,12 @@ const allSeasons = await getCollection('seasons');
 const seasonData = allSeasons.find(s => s.data.slug === season);
 const seasonLogo = seasonData?.data.logo;
 
-let prevTeamData = null;
 let nextTeamData = null;
 
-if (previousTeam) {
-  const [prevSeason, prevSlug] = previousTeam.split('/');
-  prevTeamData = allTeams.find(t => t.data.season === prevSeason && t.data.slug === prevSlug);
-}
+const prevTeams = [previousTeam].flat().filter(Boolean).map(ref => {
+  const [prevSeason, prevSlug] = ref!.split('/');
+  return allTeams.find(t => t.data.season === prevSeason && t.data.slug === prevSlug);
+}).filter(Boolean);
 if (nextTeam) {
   const [nextSeason, nextSlug] = nextTeam.split('/');
   nextTeamData = allTeams.find(t => t.data.season === nextSeason && t.data.slug === nextSlug);
@@ -53,7 +52,7 @@ if (nextTeam) {
 const reflections = members?.filter(m => m.reflection && m.reflection.trim() !== '') || [];
 ---
 
-<BaseLayout title={name} description={`${name} - Team #${number} | Jahn Robotics FIRST LEGO League ${seasonDisplay} ${seasonYear}`}>
+<BaseLayout title={name} description={`${name}${number ? ` - Team #${number}` : ''} | Jahn Robotics FIRST LEGO League ${seasonDisplay} ${seasonYear}`}>
   <!-- Breadcrumb bar -->
   <section class="pt-24 sm:pt-28 pb-4" style={`background: linear-gradient(135deg, ${color}15, ${color}05)`}>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,7 +100,7 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
               <span class="bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-3 py-1 rounded-full">
                 {seasonDisplay} · {seasonYear}
               </span>
-              <span class="text-white/70 text-sm font-medium">#{number}</span>
+              {number && <span class="text-white/70 text-sm font-medium">#{number}</span>}
             </div>
           </div>
           {seasonLogo && (
@@ -135,7 +134,7 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
               <span class="bg-gray-200 text-gray-700 text-sm font-medium px-3 py-1 rounded-full">
                 {seasonDisplay} · {seasonYear}
               </span>
-              <span class="text-gray-500 text-sm font-medium">#{number}</span>
+              {number && <span class="text-gray-500 text-sm font-medium">#{number}</span>}
             </div>
           </div>
           {seasonLogo && (
@@ -203,6 +202,7 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
   <section class="py-12 sm:py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Coaches -->
+      {coaches.length > 0 && (
       <div class="mb-10">
         <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Coaches</h2>
         <div class="flex flex-wrap gap-2">
@@ -213,6 +213,7 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
           ))}
         </div>
       </div>
+      )}
 
       <!-- Student reflections -->
       {reflections.length > 0 && (
@@ -238,11 +239,11 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
       </div>
 
       <!-- Season lineage -->
-      {(prevTeamData || nextTeamData) && (
+      {(prevTeams.length > 0 || nextTeamData) && (
         <div class="mt-12 pt-8 border-t border-gray-200">
-          <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Team #{number} History</h2>
+          <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">{number ? `Team #${number} History` : 'Team History'}</h2>
           <div class="flex flex-col sm:flex-row gap-4">
-            {prevTeamData && (
+            {prevTeams.map(prevTeamData => (
               <a
                 href={`/teams/${prevTeamData.data.season}/${prevTeamData.data.slug}/`}
                 class="flex-1 flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-electric hover:bg-electric/5 transition-all group"
@@ -256,7 +257,7 @@ const reflections = members?.filter(m => m.reflection && m.reflection.trim() !==
                   <p class="text-xs text-gray-400">{prevTeamData.data.seasonYear}</p>
                 </div>
               </a>
-            )}
+            ))}
             {nextTeamData && (
               <a
                 href={`/teams/${nextTeamData.data.season}/${nextTeamData.data.slug}/`}

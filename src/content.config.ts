@@ -5,7 +5,7 @@ const teams = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/teams' }),
   schema: z.object({
     name: z.string(),
-    number: z.number(),
+    number: z.number().optional(),
     slug: z.string(),
     season: z.string(),
     seasonYear: z.string(),
@@ -23,7 +23,7 @@ const teams = defineCollection({
       name: z.string(),
       reflection: z.string().optional(),
     })).optional(),
-    previousTeam: z.string().optional(),
+    previousTeam: z.union([z.string(), z.array(z.string())]).optional(),
     nextTeam: z.string().optional(),
   }),
 });

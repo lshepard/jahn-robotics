@@ -3,8 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import MediaHero from '../components/shared/MediaHero.astro';
 import { getCurrentYearMedia } from '../lib/media';
 
-const signupUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSc_QRV6zuepd_8dFaJoLw1aRE797RwnTEhibXRxL0-lRaA4Tw/viewform';
-
 // Get all media for the hero and photos for the gallery
 const allMedia = getCurrentYearMedia();
 const photos = allMedia.filter(m => m.type === 'photo');
@@ -28,12 +26,10 @@ const photos = allMedia.filter(m => m.type === 'photo');
           <span class="text-electric"> Robotics Program</span>
         </h1>
         <a
-          href={signupUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/teams/"
           class="inline-flex items-center gap-2 bg-orange hover:bg-orange-dark text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all hover:scale-105 shadow-lg shadow-orange/25"
         >
-          Sign Up for Fall 2026
+          Meet Our Teams
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
@@ -195,18 +191,16 @@ const photos = allMedia.filter(m => m.type === 'photo');
   <section class="py-16 sm:py-24 bg-gradient-to-br from-electric to-electric-dark">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
       <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
-        Ready to Join the Team?
+        Sign-Ups Are Closed
       </h2>
       <p class="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-        Sign up by Memorial Day to be placed on a team for fall 2026. Open to 4th-8th graders — no experience needed!
+        Sign-ups for the fall 2026 BIOGLOW season are now closed and teams have been placed. Watch this space for next season's sign-up.
       </p>
       <a
-        href={signupUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+        href="/teams/"
         class="inline-flex items-center gap-2 bg-white text-electric font-semibold px-8 py-4 rounded-xl text-lg transition-all hover:scale-105 shadow-lg"
       >
-        Sign Up Now
+        See This Year's Teams
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
         </svg>

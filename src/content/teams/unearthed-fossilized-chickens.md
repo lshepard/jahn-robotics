@@ -23,6 +23,7 @@ members:
   - name: "Team Member"
     reflection: ""
 previousTeam: "submerged/rad-robotic-chickens"
+nextTeam: "bioglow/truffalo-chickens"
 ---
 
 ## Our Season

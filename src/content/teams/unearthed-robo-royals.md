@@ -20,6 +20,7 @@ members:
   - name: "Team Member"
     reflection: ""
 previousTeam: "submerged/coral-reef-robots"
+nextTeam: "bioglow/biobeez"
 ---
 
 ## Our Season
