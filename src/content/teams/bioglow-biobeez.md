@@ -2,6 +2,7 @@
 name: "BioBeez"
 slug: "biobeez"
 season: "bioglow"
+order: 3
 seasonYear: "2026-27"
 color: "#64748B"
 coaches: []

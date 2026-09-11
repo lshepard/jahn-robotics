@@ -6,6 +6,7 @@ const teams = defineCollection({
   schema: z.object({
     name: z.string(),
     number: z.number().optional(),
+    order: z.number().optional(),
     slug: z.string(),
     season: z.string(),
     seasonYear: z.string(),

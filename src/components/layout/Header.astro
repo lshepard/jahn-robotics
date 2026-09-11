@@ -10,18 +10,19 @@ const currentPath = Astro.url.pathname;
 // is not a link, so every destination lives in the submenu.
 const navLinks = [
   { href: '/', label: 'Home' },
+  { href: '/teams/', label: 'Teams' },
   {
-    label: 'Teams',
+    label: 'About',
     children: [
-      { href: '/about/', label: 'About' },
-      { href: '/teams/', label: 'Previous Seasons' },
+      { href: '/about/', label: 'About Us' },
       { href: '/calendar/', label: 'Calendar' },
       { href: '/volunteers/', label: 'Volunteers' },
       { href: '/sponsors/', label: 'Sponsors' },
     ],
   },
-  { href: '/bioglow/', label: 'BIOGLOW' },
-  { href: '/resources/', label: 'Robot Resources' },
+  // Robot Resources is no longer top-level; it lives in the Robot section
+  // of the season page.
+  { href: '/bioglow/', label: 'Season Resources' },
   { href: '/ask-ai/', label: 'Ask AI' },
   { href: 'https://pybricks.jahnrobotics.org', label: 'Pybricks', external: true },
 ];

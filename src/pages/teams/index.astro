@@ -3,6 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SeasonSection from '../../components/teams/SeasonSection.astro';
 import { getCollection } from 'astro:content';
 
+// Teams sort by number, or by an explicit `order` before numbers are assigned.
+const sortKey = (t: { data: { order?: number; number?: number } }) => t.data.order ?? t.data.number ?? 0;
+
 const allTeams = await getCollection('teams');
 const allSeasons = await getCollection('seasons');
 
@@ -14,7 +17,7 @@ const teamsBySeason = sortedSeasons.map(season => ({
   ...season.data,
   teams: allTeams
     .filter(t => t.data.season === season.data.slug)
-    .sort((a, b) => (a.data.number ?? 0) - (b.data.number ?? 0)),
+    .sort((a, b) => sortKey(a) - sortKey(b)),
 }));
 ---
 

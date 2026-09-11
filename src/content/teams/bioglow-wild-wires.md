@@ -1,7 +1,8 @@
 ---
-name: "Scorpio Bots"
-slug: "scorpio-bots"
+name: "Wild Wires"
+slug: "wild-wires"
 season: "bioglow"
+order: 4
 seasonYear: "2026-27"
 color: "#64748B"
 coaches: []
